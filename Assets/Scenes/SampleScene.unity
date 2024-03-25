@@ -123,91 +123,69 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &355244605
-PrefabInstance:
+--- !u!1 &515497613
+GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515497615}
+  - component: {fileID: 515497614}
+  m_Layer: 0
+  m_Name: NavMesh Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &515497614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515497613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.06666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 410b6d2786d65d54aaf6cb9100216743, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &515497615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515497613}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: mat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: flatLut
-      value: 
-      objectReference: {fileID: 2800000, guid: bb2cf10fe2fab384f8fd1da800838cb2, type: 3}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: ColorBleed
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: ColorShift
-      value: 0.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: newScreenSize.x
-      value: 640
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165258152037095785, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: newScreenSize.y
-      value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.1212106
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.8047905
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.7717927
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5238820401998598406, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5241267463746980526, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
-      propertyPath: m_Name
-      value: First Person Controller Minimal
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f2e0b7ae4dae8cf44955bccd3512b213, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.320812, y: 8.740551, z: -5.6772237}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,79 +312,45 @@ Transform:
   - {fileID: 1875161218235124443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1259471076
-PrefabInstance:
+--- !u!21 &1562721106
+Material:
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/DarkBringerRefined_1_2
+  m_Shader: {fileID: 4800000, guid: 99d80d0fdb7c6724c89e77d81bbc026a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3862829661469340043, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_Name
-      value: Kitty_001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.095
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.805037
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.027
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8136308
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.581382
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -71.096
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526214043178412849, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
+    m_TexEnvs:
+    - _BayerTex:
+        m_Texture: {fileID: 2800000, guid: eac7505667530464e91debe0b4a8492b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lut2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1715586425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1241,7 @@ GameObject:
   - component: {fileID: 7631522416614864616}
   - component: {fileID: 1875161218435900295}
   - component: {fileID: 2762590396837679071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1,2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1755,7 +1699,7 @@ GameObject:
   - component: {fileID: 2725723322445410890}
   - component: {fileID: 1875161217014182731}
   - component: {fileID: 5854685189720463781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fridge_1_Door_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2331,6 +2275,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4591909335434312920}
   m_Mesh: {fileID: 4300006, guid: 396f5bf6c7247954cb702e9b2e201f0a, type: 3}
+--- !u!1001 &690840155984721622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.1212106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.8047905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7717927
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706080838611160457, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 1562721106}
+    - target: {fileID: 6765300225979603792, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_Name
+      value: First Person Controller Minimal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765300225979603792, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
 --- !u!23 &708762638878541843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2741,7 +2750,7 @@ GameObject:
   - component: {fileID: 307870456330099918}
   - component: {fileID: 1203394393934541224}
   - component: {fileID: 1875161216883927026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1_BathRoom_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2906,7 +2915,7 @@ GameObject:
   - component: {fileID: 1875161217383222892}
   - component: {fileID: 1430544311355976979}
   - component: {fileID: 1875161217383222893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3344,7 +3353,7 @@ GameObject:
   - component: {fileID: 8887707204159028852}
   - component: {fileID: 1875161217716195161}
   - component: {fileID: 7722003895014047318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fridge_1_Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4494,7 +4503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8131655915738084009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer2Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4668,7 +4677,7 @@ GameObject:
   - component: {fileID: 4303627997966214600}
   - component: {fileID: 2676504936994297262}
   - component: {fileID: 1875161217372604448}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oven_1_Door_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4975,7 +4984,7 @@ GameObject:
   - component: {fileID: 1875161216835383896}
   - component: {fileID: 1336491142121597187}
   - component: {fileID: 1875161216835383897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5269,7 +5278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295910661347602775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DrawerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5390,7 +5399,7 @@ GameObject:
   - component: {fileID: 1875161217109818704}
   - component: {fileID: 2243264999640952983}
   - component: {fileID: 1875161217109818705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6349,7 +6358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6083358025727261385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer1Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6994,7 +7003,7 @@ GameObject:
   - component: {fileID: 3004298273909207811}
   - component: {fileID: 1875161218067919977}
   - component: {fileID: 8159697951974738056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7859,8 +7868,9 @@ GameObject:
   - component: {fileID: 1879558092242735843}
   - component: {fileID: 1791420710933709129}
   - component: {fileID: 1875161217695444829}
+  - component: {fileID: 1879558092242735844}
   m_Layer: 0
-  m_Name: Door_Room_LOD (8)
+  m_Name: PlayerKitchenDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7876,8 +7886,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1876481244161980537}
   - component: {fileID: 1791651192316849031}
+  - component: {fileID: 1876481244161980538}
   m_Layer: 0
-  m_Name: Door_Room_LOD (9)
+  m_Name: PlayerBathroomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9492,7 +9503,7 @@ GameObject:
   - component: {fileID: 3101618851308007049}
   - component: {fileID: 1875161216631243168}
   - component: {fileID: 1875161216631243169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oven_1_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11855,7 +11866,7 @@ GameObject:
   - component: {fileID: 2019126607346078923}
   - component: {fileID: 1875161217064146912}
   - component: {fileID: 1875161217064146913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12933,7 +12944,7 @@ GameObject:
   - component: {fileID: 1875161217215577095}
   - component: {fileID: 1875161217215577094}
   - component: {fileID: 1875161217215577093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13346,7 +13357,7 @@ GameObject:
   - component: {fileID: 1875161217288116884}
   - component: {fileID: 1875161217288116891}
   - component: {fileID: 1875161217288116890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15905,7 +15916,7 @@ GameObject:
   - component: {fileID: 1875161217543784963}
   - component: {fileID: 1875161217543784962}
   - component: {fileID: 1875161217543784961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17275,7 +17286,7 @@ GameObject:
   - component: {fileID: 2939738375776899059}
   - component: {fileID: 1875161217833288905}
   - component: {fileID: 1875161217833288906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17431,7 +17442,7 @@ GameObject:
   - component: {fileID: 2623112103779550435}
   - component: {fileID: 1875161217849286342}
   - component: {fileID: 1875161217849286343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19159,7 +19170,7 @@ GameObject:
   - component: {fileID: 6882533435911132550}
   - component: {fileID: 1875161218058112589}
   - component: {fileID: 1875161218058112590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19365,7 +19376,7 @@ GameObject:
   - component: {fileID: 6609175066581949627}
   - component: {fileID: 1875161218065783542}
   - component: {fileID: 1875161218065783543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20034,7 +20045,7 @@ GameObject:
   - component: {fileID: 1141052598940001764}
   - component: {fileID: 1875161218135700860}
   - component: {fileID: 1875161218135700861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet2_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20914,7 +20925,7 @@ GameObject:
   - component: {fileID: 1875161218231700213}
   - component: {fileID: 1875161218232830005}
   - component: {fileID: 6089772681622488463}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FOB_S_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20933,7 +20944,7 @@ GameObject:
   - component: {fileID: 1875161218231700221}
   - component: {fileID: 1875161218232830013}
   - component: {fileID: 877707448167316907}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FOB_S_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21284,7 +21295,7 @@ GameObject:
   - component: {fileID: 8844281796633968432}
   - component: {fileID: 1875161218295235892}
   - component: {fileID: 1875161218295235899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oven_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21716,7 +21727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875161218361260412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DrawerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22338,7 +22349,7 @@ GameObject:
   - component: {fileID: 1875161218431725393}
   - component: {fileID: 1875161218431725395}
   - component: {fileID: 1875161218431725394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23614,7 +23625,7 @@ GameObject:
   - component: {fileID: 1875161218646036872}
   - component: {fileID: 1875161218642612648}
   - component: {fileID: 1875161218643743592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1_BathRoom_Sink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23632,7 +23643,7 @@ GameObject:
   - component: {fileID: 1875161218646036874}
   - component: {fileID: 1875161218642612650}
   - component: {fileID: 1875161218643743594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_2_BathRoom_Sink_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24268,7 +24279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873874404241592761}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.15382612, z: -0, w: 0.98809797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.072, y: 8.774, z: -1.031}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_ConstrainProportionsScale: 0
@@ -24276,7 +24287,26 @@ Transform:
   - {fileID: 1876468502980879567}
   - {fileID: 1879677985577982591}
   m_Father: {fileID: 1876665682234126243}
-  m_LocalEulerAnglesHint: {x: 0, y: 17.697, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1876481244161980538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873874404241592761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1876494181458665273
 Transform:
   m_ObjectHideFlags: 0
@@ -25268,6 +25298,25 @@ Transform:
   - {fileID: 1879521664258404483}
   m_Father: {fileID: 1876665682234126243}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1879558092242735844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873829573741664587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!4 &1879588574572276911
 Transform:
   m_ObjectHideFlags: 0
@@ -30036,7 +30085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520376208586302977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer1Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30293,7 +30342,7 @@ GameObject:
   - component: {fileID: 1875161217698783499}
   - component: {fileID: 4073393833726219736}
   - component: {fileID: 1875161217698783492}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPartTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30427,7 +30476,7 @@ GameObject:
   - component: {fileID: 5588404019591929291}
   - component: {fileID: 1875161217370313544}
   - component: {fileID: 6892790845476301421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chair_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30988,7 +31037,7 @@ GameObject:
   - component: {fileID: 5489778427355002112}
   - component: {fileID: 1599208134011683375}
   - component: {fileID: 3873498281923550635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet4_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31022,7 +31071,7 @@ GameObject:
   - component: {fileID: 1875161217293904114}
   - component: {fileID: 6726973097539715789}
   - component: {fileID: 1875161217293904115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPart,2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31040,7 +31089,7 @@ GameObject:
   - component: {fileID: 6102755162336838303}
   - component: {fileID: 7538551690804595055}
   - component: {fileID: 1875161217325113598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toilet_1_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32495,7 +32544,7 @@ GameObject:
   - component: {fileID: 6881498633346012411}
   - component: {fileID: 1875161217887582807}
   - component: {fileID: 6926767051811637308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32859,7 +32908,7 @@ GameObject:
   - component: {fileID: 1875161218523650589}
   - component: {fileID: 3007161310368644098}
   - component: {fileID: 1875161218523650590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32877,7 +32926,7 @@ GameObject:
   - component: {fileID: 1875161218427362450}
   - component: {fileID: 6460797250528756770}
   - component: {fileID: 1875161218427362451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fridge_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33228,7 +33277,7 @@ GameObject:
   - component: {fileID: 2197769995099984588}
   - component: {fileID: 6299386916598090271}
   - component: {fileID: 6700972874025422590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet4_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33486,7 +33535,7 @@ GameObject:
   - component: {fileID: 3362230623993257813}
   - component: {fileID: 7308656737031352020}
   - component: {fileID: 1913758566063679993}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet4_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35732,7 +35781,7 @@ GameObject:
   - component: {fileID: 1875161217636220494}
   - component: {fileID: 9141346001877730816}
   - component: {fileID: 1875161217636220495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1_BathRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36360,7 +36409,7 @@ GameObject:
   - component: {fileID: 1875161216957114288}
   - component: {fileID: 7706474628184684488}
   - component: {fileID: 1875161216957114289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPartTop (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36461,7 +36510,7 @@ GameObject:
   - component: {fileID: 1875161216667958029}
   - component: {fileID: 5997303168134912931}
   - component: {fileID: 1875161216667958030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36975,7 +37024,7 @@ GameObject:
   - component: {fileID: 1875161218118230282}
   - component: {fileID: 4592970223663578846}
   - component: {fileID: 1875161218118230283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_4_-X,2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37235,7 +37284,7 @@ GameObject:
   - component: {fileID: 9149667290490405783}
   - component: {fileID: 4414906635584069858}
   - component: {fileID: 2695964525666852670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet1_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38309,7 +38358,7 @@ GameObject:
   - component: {fileID: 1875161217858894494}
   - component: {fileID: 803565249198291649}
   - component: {fileID: 1875161217858894495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38670,7 +38719,7 @@ GameObject:
   - component: {fileID: 30499138752793072}
   - component: {fileID: 1875161217139499572}
   - component: {fileID: 7560907471410012179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chair_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39139,7 +39188,7 @@ GameObject:
   - component: {fileID: 1875161216777086267}
   - component: {fileID: 2270216093696590698}
   - component: {fileID: 1875161216777086260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39195,7 +39244,7 @@ GameObject:
   - component: {fileID: 3632895134553945244}
   - component: {fileID: 4859237463300516850}
   - component: {fileID: 8089989067628601789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet1_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39428,6 +39477,71 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.93762314, y: 0.30467808, z: 0.9979746}
   m_Center: {x: 0.0037632734, y: 0.15233904, z: -0.42523333}
+--- !u!1001 &4801730600000169946
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1033024448614769958, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_Name
+      value: Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.805037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8136308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.581382
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -71.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082517009763626654, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518035490916092933, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_Height
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518035490916092933, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: m_Radius
+      value: 0.27
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
 --- !u!23 &4802095622922326759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39776,7 +39890,7 @@ GameObject:
   - component: {fileID: 4175114509888529736}
   - component: {fileID: 1875161218502728697}
   - component: {fileID: 2962586278745726752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_5_Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39875,7 +39989,7 @@ GameObject:
   - component: {fileID: 1875161217191003718}
   - component: {fileID: 1820400438743231793}
   - component: {fileID: 1875161217191003719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPart,2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40900,7 +41014,7 @@ GameObject:
   - component: {fileID: 2135926187872361144}
   - component: {fileID: 7045522426225817980}
   - component: {fileID: 8581707647737294574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet4_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41850,7 +41964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8020465668089899590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DrawerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42149,7 +42263,7 @@ GameObject:
   - component: {fileID: 1875161217849592776}
   - component: {fileID: 7582191624089648049}
   - component: {fileID: 1875161217849592777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Radiator_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42167,7 +42281,7 @@ GameObject:
   - component: {fileID: 1875161217283478256}
   - component: {fileID: 6142307208363485038}
   - component: {fileID: 1875161217283478257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Toilet_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42370,7 +42484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3244200974151683155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drawer2Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43139,7 +43253,7 @@ GameObject:
   - component: {fileID: 6980411473632314896}
   - component: {fileID: 1875161216772801479}
   - component: {fileID: 4727741843345454176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43613,7 +43727,7 @@ GameObject:
   - component: {fileID: 1875161218214605821}
   - component: {fileID: 7285714933232594170}
   - component: {fileID: 1875161218214605822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44017,7 +44131,7 @@ GameObject:
   - component: {fileID: 1875161218419363917}
   - component: {fileID: 3092350145360932028}
   - component: {fileID: 1875161218419363918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44367,7 +44481,7 @@ GameObject:
   - component: {fileID: 1875161217446528291}
   - component: {fileID: 2862021987490302287}
   - component: {fileID: 1875161217446528316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45090,7 +45204,7 @@ GameObject:
   - component: {fileID: 1875161217734081065}
   - component: {fileID: 3440168697233478740}
   - component: {fileID: 1875161217734081066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45158,7 +45272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7889993652103982316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DrawerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45340,7 +45454,7 @@ GameObject:
   - component: {fileID: 9168642892978035496}
   - component: {fileID: 9083251612274082464}
   - component: {fileID: 6965920768376971042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet1_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45681,7 +45795,7 @@ GameObject:
   - component: {fileID: 2227234723466882454}
   - component: {fileID: 8097190664321931661}
   - component: {fileID: 6518386726952014904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45789,7 +45903,7 @@ GameObject:
   - component: {fileID: 1875161217302749912}
   - component: {fileID: 4277075808550921815}
   - component: {fileID: 1875161217302749913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_4,2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46667,7 +46781,7 @@ GameObject:
   - component: {fileID: 7449321368759111667}
   - component: {fileID: 6162655011534355429}
   - component: {fileID: 3937387851656440351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47833,7 +47947,7 @@ GameObject:
   - component: {fileID: 1875161218114213244}
   - component: {fileID: 7521101820719663582}
   - component: {fileID: 1875161218114213245}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48475,7 +48589,7 @@ GameObject:
   - component: {fileID: 2044474057662777886}
   - component: {fileID: 3335337309602358471}
   - component: {fileID: 1875161218149324590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Oven_1_Glass_Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48494,7 +48608,7 @@ GameObject:
   - component: {fileID: 5364404650476391730}
   - component: {fileID: 1875161217609040365}
   - component: {fileID: 7822537141039335733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48672,7 +48786,7 @@ GameObject:
   - component: {fileID: 1220810737895468472}
   - component: {fileID: 3066802823245884394}
   - component: {fileID: 8809204734529001241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Drawer_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49503,7 +49617,7 @@ GameObject:
   - component: {fileID: 6012367736429827543}
   - component: {fileID: 5388084599071086461}
   - component: {fileID: 4149858218319498708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet4_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49588,7 +49702,7 @@ GameObject:
   - component: {fileID: 3151091848254052082}
   - component: {fileID: 6231106554260404361}
   - component: {fileID: 6950094821505572892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Drawer_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50830,7 +50944,7 @@ GameObject:
   - component: {fileID: 1875161216541325550}
   - component: {fileID: 8334406410459162495}
   - component: {fileID: 1875161216541325551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodPartTop (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51380,7 +51494,7 @@ GameObject:
   - component: {fileID: 1546494248320425750}
   - component: {fileID: 1875161216608201986}
   - component: {fileID: 1741768922063209102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Radiator_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51667,7 +51781,7 @@ GameObject:
   - component: {fileID: 8850335830525482707}
   - component: {fileID: 1101247591698726936}
   - component: {fileID: 6915023277863598183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Drawer_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52412,7 +52526,7 @@ GameObject:
   - component: {fileID: 2143598684968725871}
   - component: {fileID: 1022993335431924096}
   - component: {fileID: 8643316096624895034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet3_Drawer_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52555,7 +52669,7 @@ GameObject:
   - component: {fileID: 1053678944058991076}
   - component: {fileID: 1875161218393430857}
   - component: {fileID: 7829284148360300031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_1_-X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54120,7 +54234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7906912725404639841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DrawerContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54198,7 +54312,7 @@ GameObject:
   - component: {fileID: 1875161217513859726}
   - component: {fileID: 2219551265919255624}
   - component: {fileID: 1875161217513859727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabinet_4_-X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54461,7 +54575,7 @@ GameObject:
   - component: {fileID: 168569926748887654}
   - component: {fileID: 1875161218416619404}
   - component: {fileID: 8187049291560704805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bed_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54818,5 +54932,6 @@ SceneRoots:
   - {fileID: 3355379208705772291}
   - {fileID: 1715586428}
   - {fileID: 815349776}
-  - {fileID: 355244605}
-  - {fileID: 1259471076}
+  - {fileID: 690840155984721622}
+  - {fileID: 4801730600000169946}
+  - {fileID: 515497615}
