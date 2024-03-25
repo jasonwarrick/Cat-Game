@@ -312,7 +312,7 @@ Transform:
   - {fileID: 1875161218235124443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1562721106
+--- !u!21 &1059505153
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -351,6 +351,11 @@ Material:
     m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
+--- !u!4 &1621728987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1951459147742216627, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+  m_PrefabInstance: {fileID: 690840155984721622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1715586425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,7 +2331,11 @@ PrefabInstance:
     - target: {fileID: 3706080838611160457, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
       propertyPath: mat
       value: 
-      objectReference: {fileID: 1562721106}
+      objectReference: {fileID: 1059505153}
+    - target: {fileID: 3706080838611160457, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6765300225979603792, guid: 6dab3ed43b331184f95ad3ea610e1d90, type: 3}
       propertyPath: m_Name
       value: First Person Controller Minimal
@@ -39537,6 +39546,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.27
       objectReference: {fileID: 0}
+    - target: {fileID: 8181457711858793027, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1621728987}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

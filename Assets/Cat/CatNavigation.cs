@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CatNavigation : MonoBehaviour
 {
     [SerializeField] Transform player;
-    // Start is called before the first frame update
-    void Start()
-    {
+    NavMeshAgent navMeshAgent;
+
+    void Start() {
+        navMeshAgent = GetComponent<NavMeshAgent>();
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        navMeshAgent.SetDestination(player.position);
     }
 }
