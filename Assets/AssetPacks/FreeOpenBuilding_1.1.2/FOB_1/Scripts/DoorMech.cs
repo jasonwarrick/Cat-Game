@@ -21,6 +21,7 @@ public class DoorMech : MonoBehaviour
 	{
 		if(col.gameObject.tag == ("Player") && Input.GetKeyDown(KeyCode.E))
 		{
+			Debug.Log("Open");
 			if (!doorBool)
 				doorBool = true;
 			else
