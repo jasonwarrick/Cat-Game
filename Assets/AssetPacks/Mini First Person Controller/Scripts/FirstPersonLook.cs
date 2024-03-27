@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FirstPersonLook : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class FirstPersonLook : MonoBehaviour
     Vector2 velocity;
     Vector2 frameVelocity;
 
+    InputActionsManager inputActionsManager;
+
+    InputAction lookAction;
 
     void Reset()
     {
         // Get the character from the FirstPersonMovement in parents.
         character = GetComponentInParent<FirstPersonMovement>().transform;
+
+        inputActionsManager = new InputActionsManager();
     }
 
     void Start()
@@ -26,10 +32,10 @@ public class FirstPersonLook : MonoBehaviour
     void Update()
     {
         // Get smooth velocity.
-        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        Vector2 mouseDelta = character.GetComponent<FirstPersonMovement>().lookVector * Time.smoothDeltaTime;
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-        frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-        velocity += frameVelocity;
+        // frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+        velocity += rawFrameVelocity;
         velocity.y = Mathf.Clamp(velocity.y, -90, 90);
 
         // Rotate camera up-down and controller left-right from velocity.

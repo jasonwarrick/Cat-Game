@@ -311,10 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fca36bd81de7c4cafce7bbf02ca611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   canRun: 0
   runSpeed: 9
   runningKey: 304
+  lookVector: {x: 0, y: 0}
 --- !u!1 &7353436098573158291
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1951459147742216627}
-  sensitivity: 2
+  sensitivity: 0.5
   smoothing: 1.5
 --- !u!114 &3706080838611160457
 MonoBehaviour:
