@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fca36bd81de7c4cafce7bbf02ca611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   canRun: 0
   runSpeed: 9
   runningKey: 304
@@ -163,7 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bb76bbf3e340a4496a6eab29ab221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 0
+  interactDistance: 2
+  holdPoint: {fileID: 5258770775990751544}
 --- !u!1 &3152664930133479652
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +243,7 @@ GameObject:
   - component: {fileID: 3228867750915983299}
   - component: {fileID: 2231419557981780022}
   - component: {fileID: 2861483133939871061}
+  - component: {fileID: 7392886820359494131}
   m_Layer: 7
   m_Name: First Person Camera
   m_TagString: MainCamera
@@ -261,7 +263,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.559, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5258770775990751544}
   m_Father: {fileID: 1656260522460708084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8298637231084756111
@@ -344,8 +347,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1656260522460708084}
-  sensitivity: 0.5
+  sensitivity: 0.25
   smoothing: 1.5
+--- !u!114 &7392886820359494131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917559020873615389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fedc9c35d33c9544bd5239e7958d571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sha: {fileID: 4800000, guid: 99d80d0fdb7c6724c89e77d81bbc026a, type: 3}
+  mat: {fileID: 0}
+  flatLut: {fileID: 2800000, guid: bb2cf10fe2fab384f8fd1da800838cb2, type: 3}
+  bayerTexture: {fileID: 2800000, guid: eac7505667530464e91debe0b4a8492b, type: 3}
+  ColorBleed: 0.25
+  LinesMult: 0.8
+  ColorShift: 0.29
+  newScreenSize: {x: 320, y: 400}
+  screenStretching: {x: 2, y: 1}
+  CustomScreenSize: 1
+  AspectRatioBars: 1
+  OneBitColor: 0
+  VerticalLines: 0
+  HorizontalLines: 0
+  Dithering: 1
+  Paletting: 1
+  clearNextUpdate: 0
 --- !u!1 &4888170029840767418
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,3 +763,77 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7909321547710653806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5258770775990751544}
+  - component: {fileID: 2120121241736724748}
+  m_Layer: 7
+  m_Name: HoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5258770775990751544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909321547710653806}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.445, y: -0.298, z: 0.704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7720896053265287294}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2120121241736724748
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909321547710653806}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}

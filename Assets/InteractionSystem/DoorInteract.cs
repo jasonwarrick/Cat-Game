@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class DoorInteract : Interactable
 {
     [SerializeField] float openDirection;
+    
     bool open = false;
 
     NavMeshObstacle obstacle;
