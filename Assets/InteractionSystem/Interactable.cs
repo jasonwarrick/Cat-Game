@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField] DoorInteract itemScript;
+
     public void Interact() {
-        transform.Rotate(new Vector3(0f, 90f, 0f));
+        itemScript.Interact();
     }
 }

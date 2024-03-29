@@ -46,7 +46,6 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (InputReader.instance.interact) {
-            Debug.Log("click");
             if (inRange) {
                 objectInRange.GetComponent<Interactable>().Interact();
             }
