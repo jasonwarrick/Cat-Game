@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, interactDistance)) {
+            Debug.Log(hit.transform.name);
             
             if (hit.transform.gameObject.tag == "Interactable") {
                 if (!inRange || inRange && objectInRange != hit.transform.gameObject) {

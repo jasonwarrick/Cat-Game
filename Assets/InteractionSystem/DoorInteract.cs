@@ -7,22 +7,32 @@ using UnityEngine.AI;
 public class DoorInteract : Interactable
 {
     [SerializeField] float openDirection;
+    [SerializeField] bool ignoreNav;
     
     bool open = false;
 
     NavMeshObstacle obstacle;
 
     void Awake() {
-        obstacle = GetComponent<NavMeshObstacle>();
+        if (!ignoreNav) {
+            obstacle = GetComponent<NavMeshObstacle>();
+        }
     }
     
     override public void Interact() {
         if (!open) {
             transform.Rotate(new Vector3(0f, openDirection * 90f, 0f));
-            obstacle.carving = false;
+
+            if (!ignoreNav) {
+                obstacle.carving = false;
+            }
+            
         } else {
             transform.Rotate(new Vector3(0f, openDirection * -1f * 90f, 0f));
-            obstacle.carving = true;
+
+            if (!ignoreNav) {
+                obstacle.carving = false;
+            }
         }
 
         open = !open;
