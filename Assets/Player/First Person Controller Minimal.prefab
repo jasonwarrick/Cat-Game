@@ -107,6 +107,7 @@ MonoBehaviour:
   canRun: 0
   runSpeed: 9
   runningKey: 304
+  cam: {fileID: 3917559020873615389}
 --- !u!143 &4289605395072542601
 CharacterController:
   m_ObjectHideFlags: 0

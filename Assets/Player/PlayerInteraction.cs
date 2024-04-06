@@ -47,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (InputReader.instance.interact) {
-            if (inRange) {
+            if (inRange && !GameStateManager.instance.GetInMinigame()) {
                 objectInRange.GetComponent<Interactable>().Interact();
             }
         }
@@ -70,5 +70,9 @@ public class PlayerInteraction : MonoBehaviour
         heldObject.transform.parent = itemParent.transform;
         heldObject.transform.position = itemParent.transform.position;
         heldObject = null;
+    }
+
+    public GameObject GetHeldItem() {
+        return heldObject;
     }
 }
