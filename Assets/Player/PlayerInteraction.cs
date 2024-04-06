@@ -25,8 +25,6 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, interactDistance)) {
-            Debug.Log(hit.transform.name);
-            
             if (hit.transform.gameObject.tag == "Interactable") {
                 if (!inRange || inRange && objectInRange != hit.transform.gameObject) {
                     inRange = true;
@@ -55,13 +53,16 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void HoldItem(GameObject item) {
+    public bool HoldItem(GameObject item) {
         if (heldObject == null) {
             Debug.Log("Picked up");
             item.transform.parent = holdPoint;
             item.transform.position = holdPoint.position;
             heldObject = item;
-        }   
+            return true;
+        }
+
+        return false;
     }
 
     public void DropItem(GameObject itemParent) {

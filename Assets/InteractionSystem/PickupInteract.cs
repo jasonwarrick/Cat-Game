@@ -7,7 +7,7 @@ public class PickupInteract : Interactable
     [SerializeField] GameObject pickupParent;
 
     override public void Interact() {
-        FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
-        pickupParent.GetComponent<PickupParent>().ItemPickedUp();
+        bool isAvailable = FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
+        if (isAvailable) { pickupParent.GetComponent<PickupParent>().ItemPickedUp(); }
     }
 }

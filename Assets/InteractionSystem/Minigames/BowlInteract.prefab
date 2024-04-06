@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6145434296835611190}
   - component: {fileID: 3846418162943888089}
   - component: {fileID: 3568239368767762656}
-  - component: {fileID: 5507181847998995616}
   - component: {fileID: 1973667021900684351}
+  - component: {fileID: 9099260182003735215}
   m_Layer: 8
   m_Name: BowlInteract
   m_TagString: Interactable
@@ -85,27 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5507181847998995616
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373206804192533031}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 02f05bd07b76e134b9ce1d218a95057a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &1973667021900684351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38999522, y: 0.088343784, z: 0.3883998}
   m_Center: {x: -0.000000014901165, y: 0.042744115, z: -0.000000007450582}
+--- !u!114 &9099260182003735215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373206804192533031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edbe4f56ff130648a17df68717ce08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupParent: {fileID: 0}
