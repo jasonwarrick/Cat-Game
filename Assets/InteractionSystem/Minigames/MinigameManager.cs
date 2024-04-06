@@ -13,6 +13,8 @@ public class MinigameManager : MonoBehaviour
     bool isStarted = false;
 
     void Start() {
+        cam.SetActive(false);
+        
         player = FindObjectOfType<FirstPersonMovement>().gameObject;
     }
 
