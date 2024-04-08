@@ -42,5 +42,10 @@ public class InputReader : MonoBehaviour
         lookX = player.GetAxis("LookHorizontal");
         lookY = player.GetAxis("LookVertical");
         interact = player.GetButtonDown("Interact");
+        
+        if (player.GetButtonDown("Pause")) {
+            GameStateManager.instance.PauseGame();
+            Debug.Log("pause");
+        }
     }
 }

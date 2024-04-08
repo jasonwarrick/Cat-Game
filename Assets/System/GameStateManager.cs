@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager instance;
 
     bool inMinigame = false;
+    bool paused = false;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,4 +29,14 @@ public class GameStateManager : MonoBehaviour
     }
 
     public bool GetInMinigame() { return inMinigame; }
+
+    public void PauseGame() {
+        if (!paused) { 
+            Time.timeScale = 0f;
+        } else {
+            Time.timeScale = 1f;
+        }
+
+        paused = !paused;
+    }
 }
