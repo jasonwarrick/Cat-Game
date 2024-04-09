@@ -48,7 +48,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (InputReader.instance.interact) {
             if (inRange && !GameStateManager.instance.GetInMinigame()) {
-                objectInRange.GetComponent<Interactable>().Interact();
+                Interactable[] interacts = objectInRange.GetComponents<Interactable>();
+
+                foreach (Interactable interactable in interacts) {
+                    if (GameStateManager.instance.GetInMinigame()) { break; }
+                    
+                    interactable.Interact();
+                }
             }
         }
     }
