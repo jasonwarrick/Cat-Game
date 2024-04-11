@@ -39282,6 +39282,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: meterAmt
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: feedPoint
       value: 
       objectReference: {fileID: 1918392028}

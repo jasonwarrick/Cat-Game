@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,19 +15,24 @@ public class CatBrain : MonoBehaviour
 
     [SerializeField] float meterAmt;
 
-    Dictionary<string, float> meters = new Dictionary<string, float>();
+    List<float> meters = new List<float>(); // The value of the meters
+    Dictionary<string, int> metersKey = new Dictionary<string, int> { // Holds the location of each meter in the "meters" list with its name and index
+        {"feed", 0},
+        {"drink", 1},
+        {"litter", 2},
+        {"play", 3},
+        {"nail", 4},
+        {"medicine", 5},
+    };
 
     CatNavigation catNavigation;
 
     void Start() {
         catNavigation = GetComponent<CatNavigation>();
 
-        meters.Add("feed", 0f);
-        meters.Add("drink", 0f);
-        meters.Add("litter", 0f);
-        meters.Add("play", 0f);
-        meters.Add("nail", 0f);
-        meters.Add("medicine", 0f);
+        for (int i = 0; i < 6; i++) {
+            meters.Add(0f);
+        }
     }
 
     void FixedUpdate() {
@@ -34,21 +40,19 @@ public class CatBrain : MonoBehaviour
     }
 
     void UpdateMeters() {
-        meters["feed"] += meterAmt;
-        meters["drink"] += meterAmt;
-        meters["litter"] += meterAmt;
-        meters["play"] += meterAmt;
-        meters["nail"] += meterAmt;
-        meters["medicine"] += meterAmt;
+        for (int i = 0; i < meters.Count; i++) {
+            meters[i] += meterAmt;
+            Debug.Log("index " + i + " is now " + meters[i]);
+        }
     }
 
     public void UpdateSpecMeter(string meter, float newMeterAmt) {
-        meters[meter] += newMeterAmt;
+        meters[metersKey[meter]] += newMeterAmt;
     }
 
     public float GetMeter(string meter) { 
-        if (meters.ContainsKey(meter)) {
-            return meters[meter]; 
+        if (metersKey.ContainsKey(meter)) {
+            return meters[metersKey[meter]]; 
         } else { return -1; }
     }
 }
