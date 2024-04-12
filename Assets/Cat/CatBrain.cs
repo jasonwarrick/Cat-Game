@@ -4,55 +4,104 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public class Meter : MonoBehaviour {
+    public delegate void MeterFull(string meterName);
+    public static MeterFull meterFull;
+
+    new string name;
+    public string Name {
+        get { return name; }
+        set { name = value; }
+    }
+
+    float reading;
+    public float Reading {
+        get { return reading; }
+    }
+
+    public bool isEnabled = false;
+
+    public Meter(string newName, float startReading) {
+        name = newName;
+        reading = startReading;
+        isEnabled = true;
+    }
+
+    public Meter(string newName, float startReading, bool newIsEnabled) {
+        name = newName;
+        reading = startReading;
+        isEnabled = newIsEnabled;
+    }
+
+    public void IncreaseReading(float newReading) {
+        reading += newReading;
+
+        if (reading >= 100f) {
+            ResetReading();
+        }
+    }
+
+    public void ResetReading() {
+        reading = 0f;
+        meterFull.Invoke(name);
+    }
+}
+
 public class CatBrain : MonoBehaviour
 {
     [SerializeField] Transform feedPoint;
+    [SerializeField] float feedStart;
     [SerializeField] Transform drinkPoint;
+    [SerializeField] float drinkStart;
     [SerializeField] Transform litterPoint;
+    [SerializeField] float litterStart;
     [SerializeField] Transform playPoint;
+    [SerializeField] float playStart;
     [SerializeField] Transform nailpoint;
+    [SerializeField] float nailStart;
     [SerializeField] Transform medicinePoint;
+    [SerializeField] float medicineStart;
 
     [SerializeField] float meterAmt;
 
-    List<float> meters = new List<float>(); // The value of the meters
-    Dictionary<string, int> metersKey = new Dictionary<string, int> { // Holds the location of each meter in the "meters" list with its name and index
-        {"feed", 0},
-        {"drink", 1},
-        {"litter", 2},
-        {"play", 3},
-        {"nail", 4},
-        {"medicine", 5},
-    };
+    List<Meter> meters = new List<Meter>();
 
     CatNavigation catNavigation;
 
     void Start() {
         catNavigation = GetComponent<CatNavigation>();
 
-        for (int i = 0; i < 6; i++) {
-            meters.Add(0f);
-        }
+        meters.Add(new Meter("feed", feedStart));
+        meters.Add(new Meter("drink", drinkStart));
+        meters.Add(new Meter("litter", litterStart));
+        meters.Add(new Meter("play", playStart));
+        meters.Add(new Meter("nail", nailStart, false));
+        meters.Add(new Meter("medicine", medicineStart, false));
     }
 
     void FixedUpdate() {
-        UpdateMeters();
+        
     }
 
     void UpdateMeters() {
-        for (int i = 0; i < meters.Count; i++) {
-            meters[i] += meterAmt;
-            Debug.Log("index " + i + " is now " + meters[i]);
+        foreach (Meter meter in meters) {
+            if (meter.isEnabled) {
+                meter.IncreaseReading(meterAmt);
+            }
         }
     }
 
-    public void UpdateSpecMeter(string meter, float newMeterAmt) {
-        meters[metersKey[meter]] += newMeterAmt;
+    public void UpdateSpecMeter(string meter, float newMeterAmt) { // Not sure if this will ever be used
+        GetMeter(meter).IncreaseReading(newMeterAmt);
     }
 
-    public float GetMeter(string meter) { 
-        if (metersKey.ContainsKey(meter)) {
-            return meters[metersKey[meter]]; 
-        } else { return -1; }
+    public Meter GetMeter(string meterName) { 
+        foreach (Meter meter in meters) {
+            if (meter.Name.Equals(meterName)) {
+                return meter;
+            }
+        }
+
+        return null;
     }
 }
