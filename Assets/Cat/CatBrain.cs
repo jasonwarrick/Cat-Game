@@ -5,8 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Meter : MonoBehaviour {
-    public delegate void MeterFull(string meterName);
+    public delegate void MeterFull(Meter meter);
     public static MeterFull meterFull;
+
+    public delegate void MeterDanger(Meter meter);
+    public static MeterDanger meterDanger;
 
     new string name;
     public string Name {
@@ -19,22 +22,38 @@ public class Meter : MonoBehaviour {
         get { return reading; }
     }
 
-    public bool isEnabled = false;
+    Transform waitPoint;
+    public Transform WaitPoint {
+        get { return waitPoint; }
+    }
 
-    public Meter(string newName, float startReading) {
+    public bool isEnabled = false;
+    public bool danger = false;
+
+    float dangerPoint = 75f;
+
+    public Meter(string newName, float startReading, Transform newWaitPoint) {
         name = newName;
         reading = startReading;
+        waitPoint = newWaitPoint;
         isEnabled = true;
     }
 
-    public Meter(string newName, float startReading, bool newIsEnabled) {
+    public Meter(string newName, float startReading, Transform newWaitPoint, bool newIsEnabled) {
         name = newName;
         reading = startReading;
+        waitPoint = newWaitPoint;
         isEnabled = newIsEnabled;
     }
 
     public void IncreaseReading(float newReading) {
         reading += newReading;
+        Debug.Log(name + " is now at " + reading);
+
+        if (reading >= dangerPoint) {
+            danger = true;
+            meterDanger.Invoke(this);
+        }
 
         if (reading >= 100f) {
             ResetReading();
@@ -43,7 +62,7 @@ public class Meter : MonoBehaviour {
 
     public void ResetReading() {
         reading = 0f;
-        meterFull.Invoke(name);
+        meterFull.Invoke(this);
     }
 }
 
@@ -57,7 +76,7 @@ public class CatBrain : MonoBehaviour
     [SerializeField] float litterStart;
     [SerializeField] Transform playPoint;
     [SerializeField] float playStart;
-    [SerializeField] Transform nailpoint;
+    [SerializeField] Transform nailPoint;
     [SerializeField] float nailStart;
     [SerializeField] Transform medicinePoint;
     [SerializeField] float medicineStart;
@@ -71,16 +90,16 @@ public class CatBrain : MonoBehaviour
     void Start() {
         catNavigation = GetComponent<CatNavigation>();
 
-        meters.Add(new Meter("feed", feedStart));
-        meters.Add(new Meter("drink", drinkStart));
-        meters.Add(new Meter("litter", litterStart));
-        meters.Add(new Meter("play", playStart));
-        meters.Add(new Meter("nail", nailStart, false));
-        meters.Add(new Meter("medicine", medicineStart, false));
+        meters.Add(new Meter("feed", feedStart, feedPoint));
+        meters.Add(new Meter("drink", drinkStart, drinkPoint));
+        meters.Add(new Meter("litter", litterStart, litterPoint));
+        meters.Add(new Meter("play", playStart, playPoint));
+        meters.Add(new Meter("nail", nailStart, nailPoint, false));
+        meters.Add(new Meter("medicine", medicineStart, medicinePoint, false));
     }
 
     void FixedUpdate() {
-        
+        UpdateMeters();
     }
 
     void UpdateMeters() {

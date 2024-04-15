@@ -14,6 +14,8 @@ public class CatNavigation : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         
         target = player.position;
+
+        Meter.meterDanger += SetTargetMeter;
     }
 
     void Update() {
@@ -22,5 +24,9 @@ public class CatNavigation : MonoBehaviour
 
     public void SetTarget(Vector3 waitPointPos) {
         target = waitPointPos;
+    }
+
+    void SetTargetMeter(Meter meter) {
+        target = meter.WaitPoint.position;
     }
 }

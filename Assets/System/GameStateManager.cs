@@ -14,6 +14,8 @@ public class GameStateManager : MonoBehaviour
         instance = this;
 
         MinigameManager.minigameStarted += SetInMinigame;
+        Meter.meterFull += GameLost;
+        Meter.meterDanger += Danger;
     }
 
     // Update is called once per frame
@@ -38,5 +40,13 @@ public class GameStateManager : MonoBehaviour
         }
 
         paused = !paused;
+    }
+
+    void GameLost(Meter meter) {
+        Debug.Log("Lost game due to " + meter.Name);
+    }
+
+    void Danger(Meter meter) {
+        Debug.Log(meter.Name + " is in danger");
     }
 }

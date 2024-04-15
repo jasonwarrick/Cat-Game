@@ -39290,6 +39290,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1918392028}
     - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: feedStart
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: nailStart
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: nailpoint
       value: 
       objectReference: {fileID: 485489226}
@@ -39298,17 +39306,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 907327807}
     - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: playStart
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: drinkPoint
       value: 
       objectReference: {fileID: 646935853}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: drinkStart
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: litterPoint
       value: 
       objectReference: {fileID: 159627411}
     - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: litterStart
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: medicinePoint
       value: 
       objectReference: {fileID: 1162848670}
+    - target: {fileID: 4316737092770363324, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
+      propertyPath: medicineStart
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8181457711858793027, guid: 108a3c96d68c4d24da899c12444dd7f9, type: 3}
       propertyPath: player
       value: 
