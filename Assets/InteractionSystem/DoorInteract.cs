@@ -12,6 +12,8 @@ public class DoorInteract : Interactable
     bool open = false;
 
     NavMeshObstacle obstacle;
+    [SerializeField] AudioSource openFX;
+    [SerializeField] AudioSource closeFX;
 
     void Awake() {
         if (!ignoreNav) {
@@ -26,13 +28,17 @@ public class DoorInteract : Interactable
             if (!ignoreNav) {
                 obstacle.carving = false;
             }
+
+            openFX.Play();
             
         } else {
             transform.Rotate(new Vector3(0f, openDirection * -1f * 90f, 0f));
 
             if (!ignoreNav) {
-                obstacle.carving = false;
+                obstacle.carving = true;
             }
+
+            closeFX.Play();
         }
 
         open = !open;
