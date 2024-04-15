@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class PickupInteract : Interactable
 {
+    bool available = false;
+
     [SerializeField] GameObject pickupParent;
 
+    override public bool CheckAvailable() {
+        if (GameStateManager.instance.heldObject == null) {
+            available = true;
+        } else {
+            available = false;
+        }
+
+        return available;
+    }
+
     override public void Interact() {
-        bool isAvailable = FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
-        if (isAvailable) { pickupParent.GetComponent<PickupParent>().ItemPickedUp(); }
+        if (available) { 
+            FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
+            pickupParent.GetComponent<PickupParent>().ItemPickedUp();
+        }
     }
 }

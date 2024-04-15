@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] Transform holdPoint;
     
     bool inRange = false;
+    bool isAvailable = false;
     GameObject objectInRange = null;
 
     GameObject heldObject;
@@ -29,7 +30,14 @@ public class PlayerInteraction : MonoBehaviour
                 if (!inRange || inRange && objectInRange != hit.transform.gameObject) {
                     inRange = true;
                     interactInRange.Invoke(inRange);
-                    objectInRange = hit.transform.gameObject;
+                    objectInRange = hit.transform.gameObject; 
+                    foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
+                        if (GameStateManager.instance.GetInMinigame()) { break; }
+                        
+                        if (interactable.CheckAvailable()) {
+                            isAvailable = true;
+                        }
+                    }
                 }
             } else {
                 if (inRange) {
@@ -47,10 +55,9 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (InputReader.instance.interact) {
-            if (inRange && !GameStateManager.instance.GetInMinigame()) {
-                Interactable[] interacts = objectInRange.GetComponents<Interactable>();
-
-                foreach (Interactable interactable in interacts) {
+            if (inRange && isAvailable && !GameStateManager.instance.GetInMinigame()) {
+                
+                foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
                     if (GameStateManager.instance.GetInMinigame()) { break; }
                     
                     interactable.Interact();
@@ -65,6 +72,7 @@ public class PlayerInteraction : MonoBehaviour
             item.transform.parent = holdPoint;
             item.transform.position = holdPoint.position;
             heldObject = item;
+            GameStateManager.instance.heldObject = item;
             return true;
         }
 
@@ -76,6 +84,7 @@ public class PlayerInteraction : MonoBehaviour
         heldObject.transform.parent = itemParent.transform;
         heldObject.transform.position = itemParent.transform.position;
         heldObject = null;
+        GameStateManager.instance.heldObject = null;
     }
 
     public GameObject GetHeldItem() {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupParent : MonoBehaviour
 {
-    [SerializeField] GameObject item;
+    [SerializeField] public GameObject item;
     [SerializeField] GameObject socket;
 
     bool itemPresent;

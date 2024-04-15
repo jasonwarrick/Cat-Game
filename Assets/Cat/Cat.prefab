@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 8327993401118785902}
   - component: {fileID: 8742891895652243632}
   - component: {fileID: 1144067918739399778}
+  - component: {fileID: 9064429089003344064}
   m_Layer: 9
   m_Name: Cat
   m_TagString: Interactable
@@ -427,11 +428,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feedPoint: {fileID: 0}
+  feedStart: 70
   drinkPoint: {fileID: 0}
+  drinkStart: 50
   litterPoint: {fileID: 0}
+  litterStart: 30
   playPoint: {fileID: 0}
-  nailpoint: {fileID: 0}
+  playStart: 10
+  nailPoint: {fileID: 0}
+  nailStart: 99
   medicinePoint: {fileID: 0}
+  medicineStart: 99
+  meterAmt: 0.01
 --- !u!65 &8327993401118785902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -465,6 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506dfb43b37dfc247b47fa34ff1d7342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  available: 0
   minigameManager: {fileID: 0}
   required: {fileID: 0}
 --- !u!114 &1144067918739399778
@@ -479,6 +488,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506dfb43b37dfc247b47fa34ff1d7342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  available: 0
+  minigameManager: {fileID: 0}
+  required: {fileID: 0}
+--- !u!114 &9064429089003344064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033024448614769958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506dfb43b37dfc247b47fa34ff1d7342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  available: 0
   minigameManager: {fileID: 0}
   required: {fileID: 0}
 --- !u!1 &1483132570818656279

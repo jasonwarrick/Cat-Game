@@ -10,6 +10,7 @@ public class DoorInteract : Interactable
     [SerializeField] bool ignoreNav;
     
     bool open = false;
+    public bool available = true;
 
     NavMeshObstacle obstacle;
     [SerializeField] AudioSource openFX;
@@ -20,7 +21,11 @@ public class DoorInteract : Interactable
             obstacle = GetComponent<NavMeshObstacle>();
         }
     }
-    
+
+    public override bool CheckAvailable() {
+        return available;
+    }
+
     override public void Interact() {
         if (!open) {
             transform.Rotate(new Vector3(0f, openDirection * 90f, 0f));

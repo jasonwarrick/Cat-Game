@@ -8,20 +8,14 @@ public class GameStateManager : MonoBehaviour
 
     bool inMinigame = false;
     bool paused = false;
+    public GameObject heldObject;
 
-    // Start is called before the first frame update
     void Start() {
         instance = this;
 
         MinigameManager.minigameStarted += SetInMinigame;
         Meter.meterFull += GameLost;
         Meter.meterDanger += Danger;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetInMinigame(bool isInMinigame) {
