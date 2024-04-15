@@ -5,9 +5,10 @@ using UnityEngine;
 public class PickupInteract : Interactable
 {
     [SerializeField] GameObject pickupParent;
+    public bool available = false;
 
     override public void Interact() {
-        bool isAvailable = FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
-        if (isAvailable) { pickupParent.GetComponent<PickupParent>().ItemPickedUp(); }
+        available = FindObjectOfType<PlayerInteraction>().HoldItem(this.gameObject);
+        if (available) { pickupParent.GetComponent<PickupParent>().ItemPickedUp(); }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickupSocket : Interactable
 {
     [SerializeField] GameObject pickupParent;
+    public bool available = false;
 
     override public void Interact() {
         FindObjectOfType<PlayerInteraction>().DropItem(pickupParent);

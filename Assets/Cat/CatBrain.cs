@@ -48,7 +48,7 @@ public class Meter : MonoBehaviour {
 
     public void IncreaseReading(float newReading) {
         reading += newReading;
-        Debug.Log(name + " is now at " + reading);
+        // Debug.Log(name + " is now at " + reading);
 
         if (reading >= dangerPoint && !danger) {
             danger = true;
