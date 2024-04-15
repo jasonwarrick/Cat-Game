@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public delegate void InteractInRange(bool isInRange);
+    public delegate void InteractInRange(bool isInRange, bool isAvailable);
     public static InteractInRange interactInRange;
 
     [SerializeField] float interactDistance;
@@ -28,8 +28,8 @@ public class PlayerInteraction : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, interactDistance)) {
             if (hit.transform.gameObject.tag == "Interactable") {
                 if (!inRange || inRange && objectInRange != hit.transform.gameObject) {
+                    isAvailable = false;
                     inRange = true;
-                    interactInRange.Invoke(inRange);
                     objectInRange = hit.transform.gameObject; 
                     foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
                         if (GameStateManager.instance.GetInMinigame()) { break; }
@@ -50,6 +50,8 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
+        interactInRange.Invoke(inRange, isAvailable);
+
         if (InputReader.instance.interact) {
             if (inRange && isAvailable && !GameStateManager.instance.GetInMinigame()) {
                 
@@ -64,7 +66,6 @@ public class PlayerInteraction : MonoBehaviour
 
     void NullifyRay() {
         inRange = false;
-        interactInRange.Invoke(inRange);
         objectInRange = null;
     }
 

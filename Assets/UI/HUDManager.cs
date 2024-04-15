@@ -14,6 +14,7 @@ public class HUDManager : MonoBehaviour
     Canvas canvas;
     [SerializeField] Image crosshair;
     [SerializeField] Image grabIcon;
+    [SerializeField] Image cantGrabIcon;
     [SerializeField] TextMeshProUGUI dangerText;
 
     Dictionary<string, string> dangerKey = new Dictionary<string, string>()
@@ -29,7 +30,7 @@ public class HUDManager : MonoBehaviour
     void Start() {
         canvas = GetComponent<Canvas>();
         
-        UpdateCrosshair(false);
+        UpdateCrosshair(false, false);
 
         PlayerInteraction.interactInRange += UpdateCrosshair;
         MinigameManager.minigameStarted += ToggleHUD;
@@ -46,9 +47,10 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    void UpdateCrosshair(bool isInRange) {
+    void UpdateCrosshair(bool isInRange, bool isAvailable) {
         crosshair.enabled = !isInRange;
-        grabIcon.enabled = isInRange;
+        grabIcon.enabled = isInRange && isAvailable;
+        cantGrabIcon.enabled = isInRange && !isAvailable;
     }
 
     void ToggleHUD(bool inMinigame) {
