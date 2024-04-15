@@ -8,7 +8,6 @@ public class GameStateManager : MonoBehaviour
 
     bool inMinigame = false;
     bool paused = false;
-    public GameObject heldObject;
 
     // Start is called before the first frame update
     void Start() {

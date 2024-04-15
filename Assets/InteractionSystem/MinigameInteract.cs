@@ -6,16 +6,9 @@ public class MinigameInteract : Interactable
 {
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] GameObject required;
-    public bool available = false;
-
-    void Update() {
-        if (required == null || GameStateManager.instance.heldObject == required) {
-            available = true;
-        }
-    }
 
     override public void Interact() {
-        if (available) {
+        if (required == null || FindObjectOfType<PlayerInteraction>().GetHeldItem() == required) {
             minigameManager.StartMinigame();
             Debug.Log("interact fired");
         }

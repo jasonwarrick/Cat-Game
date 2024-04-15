@@ -28,7 +28,6 @@ public class MinigameManager : MonoBehaviour
         Debug.Log("mingame started");
 
         player.SetActive(false);
-        // player.GetComponent<PlayerToggle>().SetPlayer(false);
     }
 
     void Update() {
@@ -40,12 +39,10 @@ public class MinigameManager : MonoBehaviour
     public void StopMinigame() {
         isStarted = false;
         player.SetActive(true);
-        // player.GetComponent<PlayerToggle>().SetPlayer(true);
         
         minigameStarted.Invoke(isStarted);
 
         cam.SetActive(isStarted);
-        
         Debug.Log("mingame ended");
     }
 }

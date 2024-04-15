@@ -11,7 +11,6 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] Transform holdPoint;
     
     bool inRange = false;
-    public bool canInteract = true;
     GameObject objectInRange = null;
 
     GameObject heldObject;
@@ -47,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
-        if (InputReader.instance.interact && canInteract) {
+        if (InputReader.instance.interact) {
             if (inRange && !GameStateManager.instance.GetInMinigame()) {
                 Interactable[] interacts = objectInRange.GetComponents<Interactable>();
 
@@ -58,17 +57,14 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log(inRange);
     }
 
     public bool HoldItem(GameObject item) {
         if (heldObject == null) {
             Debug.Log("Picked up");
-            item.transform.parent = transform;
+            item.transform.parent = holdPoint;
             item.transform.position = holdPoint.position;
             heldObject = item;
-            GameStateManager.instance.heldObject = heldObject;
             return true;
         }
 
@@ -80,7 +76,6 @@ public class PlayerInteraction : MonoBehaviour
         heldObject.transform.parent = itemParent.transform;
         heldObject.transform.position = itemParent.transform.position;
         heldObject = null;
-        GameStateManager.instance.heldObject = null;
     }
 
     public GameObject GetHeldItem() {

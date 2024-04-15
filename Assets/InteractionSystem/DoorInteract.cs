@@ -8,10 +8,9 @@ public class DoorInteract : Interactable
 {
     [SerializeField] float openDirection;
     [SerializeField] bool ignoreNav;
-    public bool available = false;
     
     bool open = false;
-    
+
     NavMeshObstacle obstacle;
     [SerializeField] AudioSource openFX;
     [SerializeField] AudioSource closeFX;

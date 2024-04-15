@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4289605395072542601}
   - component: {fileID: 1279858505452745573}
   - component: {fileID: 965849325505079404}
-  - component: {fileID: 7759867894312020075}
   m_Layer: 7
   m_Name: First Person Controller Minimal
   m_TagString: Untagged
@@ -166,24 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactDistance: 2
   holdPoint: {fileID: 5258770775990751544}
-  canInteract: 1
---- !u!114 &7759867894312020075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2934769623449140562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6613f8a0da5bd3443a3364d71f6442f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camObject: {fileID: 6673061312682494184}
-  meshObject: {fileID: 4888170029840767418}
-  fpMove: {fileID: 1374510960522073984}
-  fpLook: {fileID: 5580111099993976224}
-  playerInteraction: {fileID: 965849325505079404}
 --- !u!1 &3152664930133479652
 GameObject:
   m_ObjectHideFlags: 0
