@@ -402,8 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329d987a2c197044bbaadb74d5692561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dangerTimer: 3
   crosshair: {fileID: 3045869803173932310}
   grabIcon: {fileID: 5906666726740940813}
+  dangerText: {fileID: 5592091926697099709}
 --- !u!1 &9054361385041173181
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class Meter : MonoBehaviour {
         reading += newReading;
         Debug.Log(name + " is now at " + reading);
 
-        if (reading >= dangerPoint) {
+        if (reading >= dangerPoint && !danger) {
             danger = true;
             meterDanger.Invoke(this);
         }
