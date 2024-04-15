@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     Camera cam;
     
     void Start() {
-        cam = Camera.main;
+        cam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -41,16 +41,12 @@ public class PlayerInteraction : MonoBehaviour
                 }
             } else {
                 if (inRange) {
-                    inRange = false;
-                    interactInRange.Invoke(inRange);
-                    objectInRange = null;
+                    NullifyRay();
                 }
             }
         } else {
             if (inRange) {
-                inRange = false;
-                interactInRange.Invoke(inRange);
-                objectInRange = null;
+                NullifyRay();
             }
         }
 
@@ -64,6 +60,12 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
+    }
+
+    void NullifyRay() {
+        inRange = false;
+        interactInRange.Invoke(inRange);
+        objectInRange = null;
     }
 
     public bool HoldItem(GameObject item) {
