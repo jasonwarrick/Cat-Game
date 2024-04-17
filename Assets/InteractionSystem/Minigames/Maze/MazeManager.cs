@@ -9,6 +9,10 @@ public class MazeManager : MonoBehaviour
     bool mouseHeld = false;
     bool runStarted = false;
 
+    [SerializeField] List<GameObject> mazes = new List<GameObject>();
+    GameObject maze;
+    [SerializeField] GameObject borders;
+
     [SerializeField] GameObject lightObj;
     [SerializeField] Camera cam;
     [SerializeField] MinigameManager minigameManager;
@@ -18,6 +22,15 @@ public class MazeManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         start.SetActive(true);
+
+        SetUpMaze();
+    }
+
+    void SetUpMaze() {
+        maze = mazes[Random.Range(0, mazes.Count)];
+
+        maze.SetActive(false);
+        borders.SetActive(false);
     }
 
     void OnDisable() {
@@ -46,10 +59,15 @@ public class MazeManager : MonoBehaviour
     public void StartMaze() {
         runStarted = true;
         start.SetActive(false);
+
+        borders.SetActive(true);
+        maze.SetActive(true);
     }
 
     public void StopMaze() {
         runStarted = false;
+        maze.SetActive(false);
+        borders.SetActive(false);
         start.SetActive(true);
     }
 
