@@ -57,12 +57,13 @@ public class Meter : MonoBehaviour {
 
         if (reading >= 100f) {
             ResetReading();
+            meterFull.Invoke(this);
         }
     }
 
     public void ResetReading() {
         reading = 0f;
-        meterFull.Invoke(this);
+        Debug.Log(name + " is reset");
     }
 }
 
@@ -112,6 +113,10 @@ public class CatBrain : MonoBehaviour
 
     public void UpdateSpecMeter(string meter, float newMeterAmt) { // Not sure if this will ever be used
         GetMeter(meter).IncreaseReading(newMeterAmt);
+    }
+
+    public void ResetMeter(string meter) {
+        GetMeter(meter).ResetReading();
     }
 
     public Meter GetMeter(string meterName) { 

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80784fa94355ecb4bb212a6ec46d7a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meterName: 
   cam: {fileID: 5755621868472777968}
 --- !u!1001 &3282439090652756968
 PrefabInstance:
@@ -139,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8162912466686457534, guid: 26b89cc6a4da8db41a3db7fbe5cc1ed7, type: 3}
       propertyPath: m_Name
-      value: Camera (1)
+      value: GameObjectCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8162912466686457534, guid: 26b89cc6a4da8db41a3db7fbe5cc1ed7, type: 3}
       propertyPath: m_Layer

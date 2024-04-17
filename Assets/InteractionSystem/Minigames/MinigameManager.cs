@@ -7,15 +7,19 @@ public class MinigameManager : MonoBehaviour
     public delegate void MinigameStarted(bool isStarting);
     public static MinigameStarted minigameStarted;
 
-    [SerializeField] GameObject cam;
-    GameObject player;
+    [SerializeField] string meterName;
 
     bool isStarted = false;
+    
+    [SerializeField] GameObject cam;
+    GameObject player;
+    CatBrain catBrain;
 
     void Start() {
         cam.SetActive(false);
         
         player = FindObjectOfType<FirstPersonMovement>().gameObject;
+        catBrain = FindObjectOfType<CatBrain>();
     }
 
     public void StartMinigame() {
@@ -31,7 +35,7 @@ public class MinigameManager : MonoBehaviour
     }
 
     void Update() {
-        if (isStarted && Input.GetMouseButtonDown(0)) {
+        if (isStarted && Input.GetKeyDown(KeyCode.Space)) {
             StopMinigame();
         }
     }
@@ -44,5 +48,10 @@ public class MinigameManager : MonoBehaviour
 
         cam.SetActive(isStarted);
         Debug.Log("mingame ended");
+    }
+
+    public void CompleteMinigame() {
+        catBrain.ResetMeter(meterName);
+        StopMinigame();
     }
 }

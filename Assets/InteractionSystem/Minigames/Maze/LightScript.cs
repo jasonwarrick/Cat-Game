@@ -7,7 +7,6 @@ public class LightScript : MonoBehaviour
     [SerializeField] MazeManager mazeManager;
 
     void OnCollisionEnter(Collision other) {
-        Debug.Log("hit");
         switch (other.gameObject.tag) {
             case "MazeWall":
                 mazeManager.WallHit();
@@ -15,6 +14,11 @@ public class LightScript : MonoBehaviour
 
             case "MazeGoal":
                 mazeManager.GoalHit();
+                break;
+            
+            case "MazeStart":
+                Debug.Log("Start hit");
+                mazeManager.StartMaze();
                 break;
         }
     }

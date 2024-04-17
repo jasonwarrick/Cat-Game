@@ -21,7 +21,7 @@ public class GameStateManager : MonoBehaviour
     public void SetInMinigame(bool isInMinigame) {
         inMinigame = isInMinigame;
 
-        Debug.Log(inMinigame);
+        // Debug.Log(inMinigame);
     }
 
     public bool GetInMinigame() { return inMinigame; }
