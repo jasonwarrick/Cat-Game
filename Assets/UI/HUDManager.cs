@@ -6,16 +6,22 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager instance;
+    void Awake() => instance = this;
+
     [SerializeField] float dangerTimer;
 
     bool dangerFlashing = false;
     float dangerCounter = 0f;
 
     Canvas canvas;
+    [SerializeField] GameObject crosshairs;
     [SerializeField] Image crosshair;
     [SerializeField] Image grabIcon;
     [SerializeField] Image cantGrabIcon;
     [SerializeField] TextMeshProUGUI dangerText;
+
+    [SerializeField] Camera playerCamera;
 
     Dictionary<string, string> dangerKey = new Dictionary<string, string>()
     {
@@ -54,7 +60,8 @@ public class HUDManager : MonoBehaviour
     }
 
     void ToggleHUD(bool inMinigame) {
-        canvas.enabled = !inMinigame;
+        // canvas.enabled = !inMinigame;
+        crosshairs.SetActive(!inMinigame);
     }
 
     void StartDangerText(Meter meter) {
@@ -69,5 +76,13 @@ public class HUDManager : MonoBehaviour
         dangerCounter = 0f;
 
         dangerText.gameObject.SetActive(false);
+    }
+
+    public void SwitchCamera(Camera cam) {
+        if (cam == null) {
+            canvas.worldCamera = playerCamera;
+        } else {
+            canvas.worldCamera = cam;
+        }   
     }
 }

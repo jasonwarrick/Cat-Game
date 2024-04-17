@@ -17,6 +17,7 @@ public class MazeManager : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] GameObject start;
+    [SerializeField] GameObject tipCanvas;
 
     void OnEnable() {
         Cursor.visible = true;
@@ -29,8 +30,13 @@ public class MazeManager : MonoBehaviour
     void SetUpMaze() {
         maze = mazes[Random.Range(0, mazes.Count)];
 
-        maze.SetActive(false);
-        borders.SetActive(false);
+        ToggleBorders(false);
+    }
+
+    void ToggleBorders(bool toggle) {
+        maze.SetActive(toggle);
+        borders.SetActive(toggle);
+        tipCanvas.SetActive(!toggle);
     }
 
     void OnDisable() {
@@ -60,15 +66,14 @@ public class MazeManager : MonoBehaviour
         runStarted = true;
         start.SetActive(false);
 
-        borders.SetActive(true);
-        maze.SetActive(true);
+        ToggleBorders(true);
     }
 
     public void StopMaze() {
         runStarted = false;
-        maze.SetActive(false);
-        borders.SetActive(false);
         start.SetActive(true);
+
+        ToggleBorders(false);
     }
 
     public void WallHit() {

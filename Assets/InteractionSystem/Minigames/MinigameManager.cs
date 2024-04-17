@@ -32,6 +32,7 @@ public class MinigameManager : MonoBehaviour
         Debug.Log("mingame started");
 
         player.SetActive(false);
+        HUDManager.instance.SwitchCamera(cam.GetComponent<Camera>());
     }
 
     void Update() {
@@ -48,6 +49,8 @@ public class MinigameManager : MonoBehaviour
 
         cam.SetActive(isStarted);
         Debug.Log("mingame ended");
+
+        HUDManager.instance.SwitchCamera(null);
     }
 
     public void CompleteMinigame() {
