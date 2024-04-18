@@ -11,12 +11,13 @@ public class MazeManager : MonoBehaviour
 
     [SerializeField] List<GameObject> mazes = new List<GameObject>();
     GameObject maze;
-    [SerializeField] GameObject borders;
 
     [SerializeField] GameObject lightObj;
+    [SerializeField] GameObject start;
+    [SerializeField] GameObject goal;
+
     [SerializeField] Camera cam;
     [SerializeField] MinigameManager minigameManager;
-    [SerializeField] GameObject start;
     [SerializeField] GameObject tipCanvas;
 
     void OnEnable() {
@@ -29,13 +30,14 @@ public class MazeManager : MonoBehaviour
 
     void SetUpMaze() {
         maze = mazes[Random.Range(0, mazes.Count)];
+        start.transform.position = maze.GetComponent<MazeScript>().startPoint.position;
+        goal.transform.position = maze.GetComponent<MazeScript>().goalPoint.position;
 
         ToggleBorders(false);
     }
 
     void ToggleBorders(bool toggle) {
         maze.SetActive(toggle);
-        borders.SetActive(toggle);
         tipCanvas.SetActive(!toggle);
     }
 
@@ -56,7 +58,7 @@ public class MazeManager : MonoBehaviour
             lightObj.SetActive(true);
         } else if (Input.GetMouseButtonUp(0)) {
             mouseHeld = false;
-            runStarted = false;
+            StopMaze();
             Cursor.visible = true;
             lightObj.SetActive(false);
         }
@@ -78,6 +80,7 @@ public class MazeManager : MonoBehaviour
 
     public void WallHit() {
         Debug.Log("Wall hit");
+        AudioManager.instance.MinigameLost();
         StopMaze();
     }
 
@@ -85,6 +88,7 @@ public class MazeManager : MonoBehaviour
         Debug.Log("Goal hit");
 
         if (runStarted) {
+            AudioManager.instance.MinigameWon();
             StopMaze();
             minigameManager.CompleteMinigame();
         }
