@@ -82,6 +82,7 @@ public class HUDManager : MonoBehaviour
         if (cam == null) {
             canvas.worldCamera = playerCamera;
         } else {
+            Debug.Log(cam.gameObject.name + " is the active camera");
             canvas.worldCamera = cam;
         }   
     }
