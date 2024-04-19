@@ -18,14 +18,19 @@ public class WaterTimingManager : MonoBehaviour
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] ParticleSystem waterParticles;
     [SerializeField] Image indicator;
+    [SerializeField] GameObject tutorialText;
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             SetSweetSpot();
+            indicator.enabled = true;
+            tutorialText.SetActive(false);
             waterIsRunning = true;
 
             waterParticles.Play();
         } if (Input.GetMouseButtonUp(0)) {
+            tutorialText.SetActive(true);
+
             if (inSweetSpot) {
                 MinigameWon();
             } else if (waterIsRunning) { 
@@ -88,5 +93,6 @@ public class WaterTimingManager : MonoBehaviour
         timer = 0f;
         timerRatio = 0f;
         indicator.color = Color.red;
+        indicator.enabled = false;
     }
 }
