@@ -8,6 +8,7 @@ TagManager:
   - MazeWall
   - MazeGoal
   - MazeStart
+  - BalanceBowl
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Cat
   - Minigame
   - MazeWall
-  - 
+  - FoodPlane
   - 
   - 
   - 
