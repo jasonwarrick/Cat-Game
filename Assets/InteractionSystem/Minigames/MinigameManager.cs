@@ -14,6 +14,8 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] GameObject cam;
     GameObject player;
     CatBrain catBrain;
+    
+    Coroutine winCoroutine;
 
     void Start() {
         cam.SetActive(false);
@@ -54,7 +56,13 @@ public class MinigameManager : MonoBehaviour
     }
 
     public void CompleteMinigame() {
+        winCoroutine = StartCoroutine("CompleteCoroutine");
+    }
+
+    IEnumerator CompleteCoroutine() {
+        yield return new WaitForSeconds(1f);
         catBrain.ResetMeter(meterName);
         StopMinigame();
+        StopCoroutine(winCoroutine);
     }
 }

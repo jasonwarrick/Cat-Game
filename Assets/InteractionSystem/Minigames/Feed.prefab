@@ -337,7 +337,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 432322925
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1171906540911095651
@@ -704,7 +704,8 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Click and hold to tilt the bag.
 
-        Pour food into the bowl.'
+        Balance it to pour food into
+        the bowl.'
       objectReference: {fileID: 0}
     - target: {fileID: 8056968720140282916, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_Name
@@ -752,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390412162293817329, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.096
+      value: -0.154
       objectReference: {fileID: 0}
     - target: {fileID: 8390412162293817329, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -772,7 +773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390412162293817329, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8390412162293817329, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1223,8 +1224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodRequired: 150
-  foodError: 100
-  gravityForce: 90
+  foodError: 250
+  gravityForce: 50
   playerForce: 75
   topFoodRotation: 348
   bottomFoodRotation: 290

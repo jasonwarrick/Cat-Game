@@ -19,6 +19,7 @@ public class BalanceMinigame : MonoBehaviour
 
     bool rotating = false;
     bool inSweetSpot = false;
+    bool gameDone = false;
 
     [SerializeField] GameObject sack;
     [SerializeField] ParticleSystem foodParticles;
@@ -33,31 +34,30 @@ public class BalanceMinigame : MonoBehaviour
         currentFood = 0;
         missedFood = 0;
         tutorialText.SetActive(true);
+        gameDone = false;
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            rotating = true;
-            tutorialText.SetActive(false);
-        } if (Input.GetMouseButtonUp(0)) {
-            rotating = false;
-        }
-
-        if (sack.transform.localEulerAngles.z < topFoodRotation && sack.transform.localEulerAngles.z > bottomFoodRotation) {
-            if (!inSweetSpot) {
-                inSweetSpot = true;
-                foodParticles.Play();
+        if (!gameDone) {
+            if (Input.GetMouseButtonDown(0)) {
+                rotating = true;
+                tutorialText.SetActive(false);
+            } if (Input.GetMouseButtonUp(0)) {
+                rotating = false;
             }
-        } else if (inSweetSpot) {
-            inSweetSpot = false;
-            foodParticles.Stop();
+
+            if (sack.transform.localEulerAngles.z < topFoodRotation && sack.transform.localEulerAngles.z > bottomFoodRotation) {
+                if (!inSweetSpot) {
+                    inSweetSpot = true;
+                    foodParticles.Play();
+                }
+            } else if (inSweetSpot) {
+                inSweetSpot = false;
+                foodParticles.Stop();
+            }
+
+            RotateSack();
         }
-
-        // if (sack.transform.localEulerAngles.z == topRotation && !tutorialText.activeSelf) {
-        //     tutorialText.SetActive(true);
-        // }
-
-        RotateSack();
     }
 
     void RotateSack() {
@@ -91,6 +91,8 @@ public class BalanceMinigame : MonoBehaviour
             missedFood = 0;
             AudioManager.instance.MinigameWon();
             minigameManager.CompleteMinigame();
+            gameDone = true;
+            foodParticles.Stop();
         }
     }
 
