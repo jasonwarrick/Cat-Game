@@ -1232,6 +1232,8 @@ MonoBehaviour:
   foodParticles: {fileID: 6133772354447799938}
   minigameManager: {fileID: 7780396698335008490}
   tutorialText: {fileID: 7237722162213061408}
+  clinkSFX: {fileID: 2503464094080320215, guid: 4647eb0e80f25784bbb008315d9b69bf, type: 3}
+  thumpSFX: {fileID: 2503464094080320215, guid: 3c15c7bff2fed4145917f1e506858b08, type: 3}
 --- !u!4 &7403295126021280804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2334354720610350797, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}

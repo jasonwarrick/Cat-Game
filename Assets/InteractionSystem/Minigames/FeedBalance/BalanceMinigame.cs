@@ -25,6 +25,9 @@ public class BalanceMinigame : MonoBehaviour
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] GameObject tutorialText;
 
+    [SerializeField] GameObject clinkSFX;
+    [SerializeField] GameObject thumpSFX;
+
     void OnEnable() {
         sack.transform.localEulerAngles = new Vector3(0f, 0f, topRotation);
         currentFood = 0;
@@ -81,6 +84,7 @@ public class BalanceMinigame : MonoBehaviour
     public void FoodLanded() {
         currentFood++;
         Debug.Log(currentFood + " food hit");
+        Instantiate(clinkSFX, transform);
 
         if (currentFood >= foodRequired) {
             currentFood = 0;
@@ -93,6 +97,7 @@ public class BalanceMinigame : MonoBehaviour
     public void FoodMissed() {
         missedFood++;
         Debug.Log(missedFood + " food missed");
+        Instantiate(thumpSFX, transform);
 
         if (missedFood >= foodError) {
             currentFood = 0;
