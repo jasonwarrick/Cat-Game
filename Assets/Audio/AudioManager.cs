@@ -9,6 +9,11 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource successSFX;
     [SerializeField] AudioSource failSFX;
+    [SerializeField] AudioSource dangerSound;
+
+    void Start() {
+        Meter.meterDanger += Danger;
+    }
 
     public void MinigameWon() {
         successSFX.Play();
@@ -16,5 +21,9 @@ public class AudioManager : MonoBehaviour
 
     public void MinigameLost() {
         failSFX.Play();
+    }
+
+    public void Danger(Meter meter) {
+        dangerSound.Play();
     }
 }

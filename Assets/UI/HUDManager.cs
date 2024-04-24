@@ -12,6 +12,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] float dangerTimer;
 
     bool dangerFlashing = false;
+    [SerializeField] float filterAmt;
+    float dangerAlpha = 0f;
     float dangerCounter = 0f;
 
     Canvas canvas;
@@ -20,6 +22,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Image grabIcon;
     [SerializeField] Image cantGrabIcon;
     [SerializeField] TextMeshProUGUI dangerText;
+    [SerializeField] Image dangerFilter;
 
     [SerializeField] Camera playerCamera;
 
@@ -40,12 +43,16 @@ public class HUDManager : MonoBehaviour
 
         PlayerInteraction.interactInRange += UpdateCrosshair;
         MinigameManager.minigameStarted += ToggleHUD;
-        Meter.meterDanger += StartDangerText;
+        Meter.meterDanger += StartDangerFilter;
     }
 
     void Update() {
         if (dangerFlashing) {
             dangerCounter += Time.deltaTime;
+
+            Debug.Log(dangerAlpha);
+            dangerAlpha = (dangerCounter / dangerTimer) / filterAmt;
+            dangerFilter.color = new Color(255f, 0f, 0f, dangerAlpha);
 
             if (dangerCounter >= dangerTimer) {
                 StopDangerText();
@@ -64,16 +71,17 @@ public class HUDManager : MonoBehaviour
         crosshairs.SetActive(!inMinigame);
     }
 
-    void StartDangerText(Meter meter) {
-        dangerText.gameObject.SetActive(true);
-        dangerText.text = dangerKey[meter.Name];
+    void StartDangerFilter(Meter meter) {
+        dangerFilter.enabled = true;
 
         dangerFlashing = true;
     }
 
     void StopDangerText() {
-        dangerFlashing = false;
+        dangerFilter.enabled = false;
         dangerCounter = 0f;
+        dangerAlpha = 0f;
+        dangerFilter.color = new Color(255f, 0f, 0f, dangerAlpha);
 
         dangerText.gameObject.SetActive(false);
     }
