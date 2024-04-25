@@ -595,6 +595,7 @@ MonoBehaviour:
   crosshair: {fileID: 3045869803173932310}
   grabIcon: {fileID: 5906666726740940813}
   cantGrabIcon: {fileID: 6166995878990562587}
+  clockText: {fileID: 1125327972034256279}
   dangerText: {fileID: 0}
   dangerFilter: {fileID: 286238642605431641}
   playerCamera: {fileID: 0}

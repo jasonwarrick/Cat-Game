@@ -21,7 +21,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Image crosshair;
     [SerializeField] Image grabIcon;
     [SerializeField] Image cantGrabIcon;
-    [SerializeField] TextMeshProUGUI dangerText;
+    [SerializeField] TextMeshProUGUI clockText;
     [SerializeField] Image dangerFilter;
 
     [SerializeField] Camera playerCamera;
@@ -44,6 +44,15 @@ public class HUDManager : MonoBehaviour
         PlayerInteraction.interactInRange += UpdateCrosshair;
         MinigameManager.minigameStarted += ToggleHUD;
         Meter.meterDanger += StartDangerFilter;
+        GameStateManager.timeChanged += UpdateClock;
+    }
+
+    void UpdateClock(int hours, int minutes) {
+        if (minutes < 10) {
+            clockText.text = hours + ":" + "0" + minutes;
+        } else {
+            clockText.text = hours + ":" + minutes;
+        }
     }
 
     void Update() {
