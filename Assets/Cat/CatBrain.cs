@@ -93,7 +93,7 @@ public class CatBrain : MonoBehaviour
 
         meters.Add(new Meter("feed", feedStart, feedPoint));
         meters.Add(new Meter("drink", drinkStart, drinkPoint));
-        meters.Add(new Meter("litter", litterStart, litterPoint));
+        meters.Add(new Meter("litter", litterStart, litterPoint, false));
         meters.Add(new Meter("play", playStart, playPoint));
         meters.Add(new Meter("nail", nailStart, nailPoint, false));
         meters.Add(new Meter("medicine", medicineStart, medicinePoint, false));
@@ -127,5 +127,9 @@ public class CatBrain : MonoBehaviour
         }
 
         return null;
+    }
+
+    public bool IsMeterDanger(string meterName) {
+        return GetMeter(meterName).danger;
     }
 }

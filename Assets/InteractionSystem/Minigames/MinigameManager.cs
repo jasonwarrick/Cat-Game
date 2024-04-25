@@ -7,7 +7,7 @@ public class MinigameManager : MonoBehaviour
     public delegate void MinigameStarted(bool isStarting);
     public static MinigameStarted minigameStarted;
 
-    [SerializeField] string meterName;
+    public string meterName;
 
     bool isStarted = false;
     
