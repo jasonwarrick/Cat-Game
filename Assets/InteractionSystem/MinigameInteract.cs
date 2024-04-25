@@ -13,13 +13,28 @@ public class MinigameInteract : Interactable
 
     void Start() {
         meterName = minigameManager.meterName;
+
+        Meter.meterDanger += InDanger;
+        Meter.meterReset += MeterReset;
+    }
+
+    void InDanger(Meter meter) {
+        if (meter.Name == meterName) {
+            available = true;
+        }
+    }
+
+    void MeterReset(Meter meter) {
+        if (meter.Name == meterName) {
+            available = false;
+        }
     }
 
     override public bool CheckAvailable() {
-        if (required == null || GameStateManager.instance.heldObject == required && FindObjectOfType<CatBrain>().IsMeterDanger(meterName)) {
-            available = true;
-        } else {
-            available = false;
+        if (available) {
+            if (required == null || GameStateManager.instance.heldObject == required && FindObjectOfType<CatBrain>().IsMeterDanger(meterName)) {
+                available = true;
+            }
         }
 
         return available;

@@ -21,6 +21,12 @@ public class PlayerInteraction : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
     }
 
+    public void UpdateIsAvailable(GameObject givenObject, bool newAvailable) {
+        if (givenObject == objectInRange) {
+            isAvailable = newAvailable;
+        }
+    }
+
     // Update is called once per frame
     void Update() {
         RaycastHit hit;

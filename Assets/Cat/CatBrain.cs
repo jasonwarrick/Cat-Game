@@ -11,6 +11,9 @@ public class Meter : MonoBehaviour {
     public delegate void MeterDanger(Meter meter);
     public static MeterDanger meterDanger;
 
+    public delegate void MeterReset(Meter meter);
+    public static MeterReset meterReset;
+
     new string name;
     public string Name {
         get { return name; }
@@ -63,6 +66,8 @@ public class Meter : MonoBehaviour {
 
     public void ResetReading() {
         reading = 0f;
+        danger = false;
+        meterReset.Invoke(this);
         Debug.Log(name + " is reset");
     }
 }
