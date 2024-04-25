@@ -73,6 +73,8 @@ public class HUDManager : MonoBehaviour
 
     void StartDangerFilter(Meter meter) {
         dangerFilter.enabled = true;
+        dangerCounter = 0f;
+        dangerAlpha = 0f;
 
         dangerFlashing = true;
     }
@@ -82,8 +84,6 @@ public class HUDManager : MonoBehaviour
         dangerCounter = 0f;
         dangerAlpha = 0f;
         dangerFilter.color = new Color(255f, 0f, 0f, dangerAlpha);
-
-        dangerText.gameObject.SetActive(false);
     }
 
     public void SwitchCamera(Camera cam) {
