@@ -9,6 +9,7 @@ public class MinigameInteract : Interactable
 
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] GameObject required;
+    [SerializeField] PickupParent pickupParent;
 
     void Start() {
         meterName = minigameManager.meterName;
@@ -27,6 +28,7 @@ public class MinigameInteract : Interactable
     override public void Interact() {
         if (available) {
             minigameManager.StartMinigame();
+            pickupParent.TurnOffLight();
             Debug.Log("interact fired");
         }
     }

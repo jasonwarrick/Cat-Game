@@ -7,19 +7,20 @@ public class PickupParent : MonoBehaviour
     [SerializeField] string meterName;
     [SerializeField] public GameObject item;
     [SerializeField] GameObject socket;
+    [SerializeField] Transform minigamePoint;
+    [SerializeField] Transform lightPoint;
     [SerializeField] Light dangerLight;
 
     bool itemPresent;
 
     void Start() {
-        dangerLight.enabled = true;
-        dangerLight.enabled = false;
+        TurnOffLight();
 
         Meter.meterDanger += TriggerLight;
     }
 
     public void ItemPickedUp() {
-        dangerLight.enabled = false;
+        dangerLight.transform.position = minigamePoint.position;
         itemPresent = false;
         socket.SetActive(true);
         item.GetComponent<BoxCollider>().enabled = false;
@@ -32,6 +33,11 @@ public class PickupParent : MonoBehaviour
             socket.SetActive(false);
             item.GetComponent<BoxCollider>().enabled = true;
         }
+    }
+
+    public void TurnOffLight() {
+        dangerLight.enabled = false;
+        dangerLight.transform.position = lightPoint.position;
     }
 
     void TriggerLight(Meter meter) {

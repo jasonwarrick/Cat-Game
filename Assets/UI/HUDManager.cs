@@ -50,7 +50,6 @@ public class HUDManager : MonoBehaviour
         if (dangerFlashing) {
             dangerCounter += Time.deltaTime;
 
-            Debug.Log(dangerAlpha);
             dangerAlpha = (dangerCounter / dangerTimer) / filterAmt;
             dangerFilter.color = new Color(255f, 0f, 0f, dangerAlpha);
 

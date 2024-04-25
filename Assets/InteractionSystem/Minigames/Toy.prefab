@@ -693,6 +693,7 @@ Transform:
   m_Children:
   - {fileID: 1774311272118967714}
   - {fileID: 9133833406460560831}
+  - {fileID: 7998485964479481397}
   - {fileID: 2305840896030602053}
   m_Father: {fileID: 786664572246669149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,6 +712,8 @@ MonoBehaviour:
   meterName: play
   item: {fileID: 1947651323515370916}
   socket: {fileID: 381310567594039394}
+  minigamePoint: {fileID: 0}
+  lightPoint: {fileID: 7998485964479481397}
   dangerLight: {fileID: 6417327257000692082}
 --- !u!1 &7226492131547862908
 GameObject:
@@ -746,6 +749,37 @@ Transform:
   - {fileID: 5615928311091205455}
   - {fileID: 6121935317321851726}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7849750004879847988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7998485964479481397}
+  m_Layer: 8
+  m_Name: LightPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7998485964479481397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849750004879847988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.13700008, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5615928311091205455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8447990513173524601
 GameObject:
