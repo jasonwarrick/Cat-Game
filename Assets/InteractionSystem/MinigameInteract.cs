@@ -43,8 +43,12 @@ public class MinigameInteract : Interactable
     override public void Interact() {
         if (available) {
             minigameManager.StartMinigame();
-            pickupParent.TurnOffLight();
-            Debug.Log("interact fired");
+
+            if (pickupParent != null) {
+                pickupParent.TurnOffLight();
+            }
+
+            // Debug.Log("interact fired");
         }
     }
 }

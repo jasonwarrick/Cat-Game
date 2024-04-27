@@ -61,7 +61,12 @@ public class MinigameManager : MonoBehaviour
 
     IEnumerator CompleteCoroutine() {
         yield return new WaitForSeconds(1f);
-        catBrain.ResetMeter(meterName);
+        if (meterName != null) {
+            catBrain.ResetMeter(meterName);
+        } else {
+            // Save work progress
+        }
+        
         StopMinigame();
         StopCoroutine(winCoroutine);
     }
