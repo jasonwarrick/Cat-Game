@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    void Awake() => instance = this;
+    void OnEnable() => instance = this;
 
     [SerializeField] AudioSource successSFX;
     [SerializeField] AudioSource failSFX;
@@ -13,6 +14,10 @@ public class AudioManager : MonoBehaviour
 
     void Start() {
         Meter.meterDanger += Danger;
+    }
+
+    void OnDestroy() {
+        Meter.meterDanger -= Danger;
     }
 
     public void MinigameWon() {

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager instance;
-    void Awake() => instance = this;
 
     [SerializeField] float dangerTimer;
 
@@ -36,7 +35,8 @@ public class HUDManager : MonoBehaviour
     {"medicine", "I have to give it medicine"},
     };
 
-    void Start() {
+    void OnEnable() {
+        instance = this;
         canvas = GetComponent<Canvas>();
         
         UpdateCrosshair(false, false);
@@ -45,6 +45,13 @@ public class HUDManager : MonoBehaviour
         MinigameManager.minigameStarted += ToggleHUD;
         Meter.meterDanger += StartDangerFilter;
         GameStateManager.timeChanged += UpdateClock;
+    }
+
+    void OnDestroy() {
+        PlayerInteraction.interactInRange -= UpdateCrosshair;
+        MinigameManager.minigameStarted -= ToggleHUD;
+        Meter.meterDanger -= StartDangerFilter;
+        GameStateManager.timeChanged -= UpdateClock;
     }
 
     void UpdateClock(int hours, int minutes) {
@@ -69,9 +76,11 @@ public class HUDManager : MonoBehaviour
     }
 
     void UpdateCrosshair(bool isInRange, bool isAvailable) {
-        crosshair.enabled = !isInRange;
-        grabIcon.enabled = isInRange && isAvailable;
-        cantGrabIcon.enabled = isInRange && !isAvailable;
+        if (crosshair != null) {
+            crosshair.enabled = !isInRange;
+            grabIcon.enabled = isInRange && isAvailable;
+            cantGrabIcon.enabled = isInRange && !isAvailable;
+        }
     }
 
     void ToggleHUD(bool inMinigame) {

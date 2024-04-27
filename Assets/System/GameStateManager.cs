@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -18,8 +20,10 @@ public class GameStateManager : MonoBehaviour
     bool inMinigame = false;
     bool paused = false;
     public GameObject heldObject;
+    GameObject player;
 
     void Start() {
+        player = FindObjectOfType<FirstPersonMovement>().gameObject;
         instance = this;
         time = startTime;
         timeChanged.Invoke(time[0], time[1]);
@@ -27,6 +31,12 @@ public class GameStateManager : MonoBehaviour
         MinigameManager.minigameStarted += SetInMinigame;
         Meter.meterFull += GameLost;
         Meter.meterDanger += Danger;
+    }
+
+    void OnDestroy() {
+        MinigameManager.minigameStarted -= SetInMinigame;
+        Meter.meterFull -= GameLost;
+        Meter.meterDanger -= Danger;
     }
     
     void Update() {
@@ -71,11 +81,15 @@ public class GameStateManager : MonoBehaviour
         paused = !paused;
     }
 
-    void GameLost(Meter meter) {
-        Debug.Log("Lost game due to " + meter.Name);
-    }
-
     void Danger(Meter meter) {
         Debug.Log(meter.Name + " is in danger");
+    }
+    
+    void GameLost(Meter meter) {
+        player.SetActive(false);
+        Debug.Log("game lost");
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 }

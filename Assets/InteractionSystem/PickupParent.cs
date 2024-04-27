@@ -13,10 +13,14 @@ public class PickupParent : MonoBehaviour
 
     bool itemPresent;
 
-    void Start() {
+    void OnEnable() {
         TurnOffLight();
 
         Meter.meterDanger += TriggerLight;
+    }
+
+    void OnDestroy() {
+        Meter.meterDanger -= TriggerLight;
     }
 
     public void ItemPickedUp() {
