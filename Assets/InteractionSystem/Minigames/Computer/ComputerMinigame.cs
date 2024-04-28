@@ -14,6 +14,7 @@ public class ComputerMinigame : MonoBehaviour
 
     [SerializeField] Slider progressBar;
     [SerializeField] TextMeshProUGUI workTracker;
+    [SerializeField] ComputerAudioManager cam;
 
     void Update() {
         if (Input.anyKeyDown) {
@@ -23,6 +24,7 @@ public class ComputerMinigame : MonoBehaviour
 
     void DoWork() {
         currentWork++;
+        cam.PlayKeyAudio();
         // Debug.Log (currentWork + " work done out of " + workToComplete + " total work");
 
         if (currentWork >= workToComplete) {

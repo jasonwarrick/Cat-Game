@@ -24,6 +24,7 @@ public class PickupParent : MonoBehaviour
     }
 
     public void ItemPickedUp() {
+        dangerLight.transform.parent = minigamePoint;
         dangerLight.transform.position = minigamePoint.position;
         itemPresent = false;
         socket.SetActive(true);
@@ -41,6 +42,7 @@ public class PickupParent : MonoBehaviour
 
     public void TurnOffLight() {
         dangerLight.enabled = false;
+        dangerLight.transform.parent = transform;
         dangerLight.transform.position = lightPoint.position;
     }
 
