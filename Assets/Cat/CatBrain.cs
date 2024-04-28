@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Meter : MonoBehaviour {
@@ -33,7 +31,7 @@ public class Meter : MonoBehaviour {
     public bool isEnabled = false;
     public bool danger = false;
 
-    float dangerPoint = 75f;
+    float dangerPoint = 60f;
 
     public Meter(string newName, float startReading, Transform newWaitPoint) {
         name = newName;
@@ -59,49 +57,73 @@ public class Meter : MonoBehaviour {
         }
 
         if (reading >= 100f) {
-            ResetReading();
+            ResetReading(0f);
             meterFull.Invoke(this);
         }
     }
 
-    public void ResetReading() {
-        reading = 0f;
+    public void ResetReading(float range) {
+        reading = Random.Range(0f, range);
         danger = false;
         meterReset.Invoke(this);
-        Debug.Log(name + " is reset");
+        Debug.Log(name + " is reset to " + reading);
     }
 }
 
 public class CatBrain : MonoBehaviour
 {
     [SerializeField] Transform feedPoint;
-    [SerializeField] float feedStart;
+    // [SerializeField] float feedStart;
     [SerializeField] Transform drinkPoint;
-    [SerializeField] float drinkStart;
+    // [SerializeField] float drinkStart;
     [SerializeField] Transform litterPoint;
-    [SerializeField] float litterStart;
+    // [SerializeField] float litterStart;
     [SerializeField] Transform playPoint;
-    [SerializeField] float playStart;
+    // [SerializeField] float playStart;
     [SerializeField] Transform nailPoint;
-    [SerializeField] float nailStart;
+    // [SerializeField] float nailStart;
     [SerializeField] Transform medicinePoint;
-    [SerializeField] float medicineStart;
+    // [SerializeField] float medicineStart;
 
     [SerializeField] float meterAmt;
+    [SerializeField] float meterResetRange;
+    [SerializeField] float meterStartRange;
+    [SerializeField] float meterStartBuffer;
 
     List<Meter> meters = new List<Meter>();
+    List<float> meterStarts = new List<float>();
 
     CatNavigation catNavigation;
 
     void Start() {
         catNavigation = GetComponent<CatNavigation>();
 
-        meters.Add(new Meter("feed", feedStart, feedPoint));
-        meters.Add(new Meter("drink", drinkStart, drinkPoint));
-        meters.Add(new Meter("litter", litterStart, litterPoint, false));
-        meters.Add(new Meter("play", playStart, playPoint));
-        meters.Add(new Meter("nail", nailStart, nailPoint, false));
-        meters.Add(new Meter("medicine", medicineStart, medicinePoint, false));
+        for (int i = 0; i < 3; i++) {
+            float newStart = Random.Range(0f, meterStartRange);
+
+            foreach (float start in meterStarts) {
+                if (newStart > start - meterStartBuffer && newStart < start + meterStartBuffer) {
+                    newStart = start - meterStartBuffer;
+
+                    if (newStart < 0) {
+                        newStart = start + meterStartBuffer;
+                    }
+                }
+            }
+
+            meterStarts.Add(newStart);
+
+            Debug.Log(newStart);
+        }
+
+        meters.Add(new Meter("feed", meterStarts[0], feedPoint));
+        meters.Add(new Meter("drink", meterStarts[1], drinkPoint));
+        // meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint, false));
+        meters.Add(new Meter("play", meterStarts[2], playPoint));
+        // meters.Add(new Meter("nail", Random.Range(0f, meterStartRange), nailPoint, false));
+        // meters.Add(new Meter("medicine", Random.Range(0f, meterStartRange), medicinePoint, false));
+
+        
     }
 
     void FixedUpdate() {
@@ -121,7 +143,7 @@ public class CatBrain : MonoBehaviour
     }
 
     public void ResetMeter(string meter) {
-        GetMeter(meter).ResetReading();
+        GetMeter(meter).ResetReading(meterResetRange);
     }
 
     public Meter GetMeter(string meterName) { 
