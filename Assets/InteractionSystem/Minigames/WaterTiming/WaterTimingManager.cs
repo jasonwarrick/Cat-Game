@@ -29,12 +29,13 @@ public class WaterTimingManager : MonoBehaviour
 
             waterParticles.Play();
         } if (Input.GetMouseButtonUp(0)) {
-            tutorialText.SetActive(true);
-
             if (inSweetSpot) {
                 MinigameWon();
             } else if (waterIsRunning) { 
+                tutorialText.SetActive(true);
                 MinigameLost();
+            } else {
+                tutorialText.SetActive(true);
             }
         }
 

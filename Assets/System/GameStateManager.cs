@@ -13,6 +13,7 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] float timeFactor; // The higher the factor, the quicker time passes
     [SerializeField] int[] startTime = new int[2];
+    [SerializeField] int timeIncrement;
     
     int[] time = new int[2] { 10, 0 } ; // { Hours, Minutes }
     float timeCounter = 0f;
@@ -42,14 +43,14 @@ public class GameStateManager : MonoBehaviour
     void Update() {
         timeCounter += Time.deltaTime;
 
-        if (timeCounter >= 1f / timeFactor) {
+        if (timeCounter >= timeIncrement / timeFactor) {
             timeCounter = 0f;
             AddMinute();
         }
     }
 
     void AddMinute() {
-        time[1]++;
+        time[1] += timeIncrement;
 
         if (time[1] >= 60) {
             time[1] = 0;

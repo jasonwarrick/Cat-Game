@@ -6,8 +6,8 @@ public class MazeManager : MonoBehaviour
 {
     Vector3 screenPos;
     Vector3 worldPos;
-    bool mouseHeld = false;
     bool runStarted = false;
+    bool minigameFinished = false;
 
     [SerializeField] List<GameObject> mazes = new List<GameObject>();
     GameObject maze;
@@ -38,12 +38,16 @@ public class MazeManager : MonoBehaviour
 
     void ToggleBorders(bool toggle) {
         maze.SetActive(toggle);
-        tipCanvas.SetActive(!toggle);
+
+        if (!minigameFinished) {
+            tipCanvas.SetActive(!toggle);
+        }
     }
 
     void OnDisable() {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        minigameFinished = false;
     }
 
     void Update() {
@@ -53,11 +57,9 @@ public class MazeManager : MonoBehaviour
         lightObj.transform.position = worldPos;
 
         if (Input.GetMouseButtonDown(0)) {
-            mouseHeld = true;
             Cursor.visible = false;
             lightObj.SetActive(true);
         } else if (Input.GetMouseButtonUp(0)) {
-            mouseHeld = false;
             StopMaze();
             Cursor.visible = true;
             lightObj.SetActive(false);
@@ -75,7 +77,9 @@ public class MazeManager : MonoBehaviour
         runStarted = false;
         start.SetActive(true);
 
-        ToggleBorders(false);
+        if (!minigameFinished) {
+            ToggleBorders(false);
+        }
     }
 
     public void WallHit() {
@@ -88,6 +92,7 @@ public class MazeManager : MonoBehaviour
         Debug.Log("Goal hit");
 
         if (runStarted) {
+            minigameFinished = true;
             AudioManager.instance.MinigameWon();
             StopMaze();
             minigameManager.CompleteMinigame();
