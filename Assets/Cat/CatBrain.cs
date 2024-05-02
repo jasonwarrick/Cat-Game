@@ -62,6 +62,20 @@ public class Meter : MonoBehaviour {
         }
     }
 
+    public void SetReading(float newReading) {
+        reading = newReading;
+
+        if (reading >= dangerPoint && !danger) {
+            danger = true;
+            meterDanger.Invoke(this);
+        }
+
+        if (reading >= 100f) {
+            ResetReading(0f);
+            meterFull.Invoke(this);
+        }
+    }
+
     public void ResetReading(float range) {
         reading = Random.Range(0f, range);
         danger = false;
@@ -90,13 +104,15 @@ public class CatBrain : MonoBehaviour
     [SerializeField] float meterStartRange;
     [SerializeField] float meterStartBuffer;
 
+    float timer = 0f;
+    float counter = 0f;
+    [SerializeField] float minTimer;
+    [SerializeField] float maxTimer;
+
     List<Meter> meters = new List<Meter>();
     List<float> meterStarts = new List<float>();
 
-    CatNavigation catNavigation;
-
     void Start() {
-        catNavigation = GetComponent<CatNavigation>();
 
         for (int i = 0; i < 3; i++) {
             float newStart = Random.Range(0f, meterStartRange);
@@ -118,24 +134,36 @@ public class CatBrain : MonoBehaviour
 
         meters.Add(new Meter("feed", meterStarts[0], feedPoint));
         meters.Add(new Meter("drink", meterStarts[1], drinkPoint));
-        // meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint, false));
+        // meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
         meters.Add(new Meter("play", meterStarts[2], playPoint));
         // meters.Add(new Meter("nail", Random.Range(0f, meterStartRange), nailPoint, false));
         // meters.Add(new Meter("medicine", Random.Range(0f, meterStartRange), medicinePoint, false));
 
-        
+        SetTimer();
     }
 
     void FixedUpdate() {
         UpdateMeters();
     }
 
+    void SetTimer() {
+        timer = Random.Range(minTimer, maxTimer);
+    }
+
     void UpdateMeters() {
-        foreach (Meter meter in meters) {
-            if (meter.isEnabled) {
-                meter.IncreaseReading(meterAmt);
-            }
+        counter += Time.deltaTime;
+
+        if (counter >= timer) {
+            meters[Random.Range(0, meters.Count)].SetReading(60);
+            counter = 0f;
+            SetTimer();
         }
+
+        // foreach (Meter meter in meters) {
+        //     if (meter.isEnabled) {
+        //         meter.IncreaseReading(meterAmt);
+        //     }
+        // }
     }
 
     public void UpdateSpecMeter(string meter, float newMeterAmt) { // Not sure if this will ever be used
