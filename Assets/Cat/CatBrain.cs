@@ -159,11 +159,11 @@ public class CatBrain : MonoBehaviour
             SetTimer();
         }
 
-        // foreach (Meter meter in meters) {
-        //     if (meter.isEnabled) {
-        //         meter.IncreaseReading(meterAmt);
-        //     }
-        // }
+        foreach (Meter meter in meters) {
+            if (meter.isEnabled && meter.danger) {
+                meter.IncreaseReading(meterAmt);
+            }
+        }
     }
 
     public void UpdateSpecMeter(string meter, float newMeterAmt) { // Not sure if this will ever be used
