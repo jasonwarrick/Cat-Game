@@ -28,10 +28,11 @@ public class Meter : MonoBehaviour {
         get { return waitPoint; }
     }
 
+    [SerializeField] float dangerInc;
     public bool isEnabled = false;
     public bool danger = false;
 
-    float dangerPoint = 60f;
+    // float dangerPoint = 60f;
 
     public Meter(string newName, float startReading, Transform newWaitPoint) {
         name = newName;
@@ -47,14 +48,20 @@ public class Meter : MonoBehaviour {
         isEnabled = newIsEnabled;
     }
 
+    void FixedUpdate() {
+        IncreaseReading(dangerInc);
+    }
+
     public void IncreaseReading(float newReading) {
         reading += newReading;
         // Debug.Log(name + " is now at " + reading);
 
-        if (reading >= dangerPoint && !danger) {
-            danger = true;
-            meterDanger.Invoke(this);
-        }
+        // if (reading >= 60f && !danger) {
+        //     danger = true;
+        //     meterDanger.Invoke(this);
+        // }
+
+        Debug.Log("reading is now " + reading);
 
         if (reading >= 100f) {
             ResetReading(0f);
@@ -62,18 +69,10 @@ public class Meter : MonoBehaviour {
         }
     }
 
-    public void SetReading(float newReading) {
-        reading = newReading;
-
-        if (reading >= dangerPoint && !danger) {
-            danger = true;
-            meterDanger.Invoke(this);
-        }
-
-        if (reading >= 100f) {
-            ResetReading(0f);
-            meterFull.Invoke(this);
-        }
+    public void StartDanger() {
+        Debug.Log("Start " + name + " danger");
+        danger = true;
+        meterDanger.Invoke(this);
     }
 
     public void ResetReading(float range) {
@@ -114,28 +113,28 @@ public class CatBrain : MonoBehaviour
 
     void Start() {
 
-        for (int i = 0; i < 3; i++) {
-            float newStart = Random.Range(0f, meterStartRange);
+        // for (int i = 0; i < 3; i++) {
+        //     float newStart = Random.Range(0f, meterStartRange);
 
-            foreach (float start in meterStarts) {
-                if (newStart > start - meterStartBuffer && newStart < start + meterStartBuffer) {
-                    newStart = start - meterStartBuffer;
+        //     foreach (float start in meterStarts) {
+        //         if (newStart > start - meterStartBuffer && newStart < start + meterStartBuffer) {
+        //             newStart = start - meterStartBuffer;
 
-                    if (newStart < 0) {
-                        newStart = start + meterStartBuffer;
-                    }
-                }
-            }
+        //             if (newStart < 0) {
+        //                 newStart = start + meterStartBuffer;
+        //             }
+        //         }
+        //     }
 
-            meterStarts.Add(newStart);
+        //     meterStarts.Add(newStart);
 
-            Debug.Log(newStart);
-        }
+        //     // Debug.Log(newStart);
+        // }
 
-        meters.Add(new Meter("feed", meterStarts[0], feedPoint));
-        meters.Add(new Meter("drink", meterStarts[1], drinkPoint));
+        meters.Add(new Meter("feed", 1f, feedPoint));
+        meters.Add(new Meter("drink", 1f, drinkPoint));
         // meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
-        meters.Add(new Meter("play", meterStarts[2], playPoint));
+        meters.Add(new Meter("play", 1f, playPoint));
         // meters.Add(new Meter("nail", Random.Range(0f, meterStartRange), nailPoint, false));
         // meters.Add(new Meter("medicine", Random.Range(0f, meterStartRange), medicinePoint, false));
 
@@ -154,9 +153,23 @@ public class CatBrain : MonoBehaviour
         counter += Time.deltaTime;
 
         if (counter >= timer) {
-            meters[Random.Range(0, meters.Count)].SetReading(60);
-            counter = 0f;
-            SetTimer();
+            List<int> openIndices = new List<int> {};
+
+            for (int i = 0; i < meters.Count; i++) {
+                if (!meters[i].danger) {
+                    openIndices.Add(i);
+                }
+            }
+
+            if (openIndices.Count > 0) {
+                int newIndex = Random.Range(0, openIndices.Count);
+
+                meters[openIndices[newIndex]].StartDanger();
+                counter = 0f;
+                SetTimer();
+
+                openIndices.Clear();
+            }
         }
 
         foreach (Meter meter in meters) {
