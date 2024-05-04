@@ -51,15 +51,22 @@ public class MazeManager : MonoBehaviour
     }
 
     void Update() {
+        MoveLight();
+    }
+
+    void MoveLight() {
         screenPos = Input.mousePosition;
         screenPos.z = 1f;
         worldPos = cam.ScreenToWorldPoint(screenPos);
         lightObj.transform.position = worldPos;
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             Cursor.visible = false;
             lightObj.SetActive(true);
-        } else if (Input.GetMouseButtonUp(0)) {
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
             StopMaze();
             Cursor.visible = true;
             lightObj.SetActive(false);
