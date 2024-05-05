@@ -4,39 +4,43 @@ using UnityEngine;
 
 public class StackingManager : MonoBehaviour
 {
-    [SerializeField] float spawnRange;
-    [SerializeField] float spawnOffset;
+    [SerializeField] float chargeRate;
+    [SerializeField] Vector3 chargeDirection;
 
-    Vector3 screenPos;
-    Vector3 worldPos;
-
+    int poopNeeded = 5;
+    int poopMade = 0;
+    bool charging = false;
+    
     [SerializeField] GameObject poop;
     [SerializeField] GameObject scoopObj;
-    [SerializeField] Camera cam;
+    [SerializeField] MinigameManager minigameManager;
 
     void OnEnable() {
-        // Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
-
-        Vector3 poopPos = new Vector3(-spawnRange, 0.75f, 1f);
-        GameObject poopInstance = Instantiate(poop, transform, false);
-        poopInstance.transform.position = transform.TransformPoint(poopPos);
+        
     }
 
     void OnDisable() {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update() {
-        MoveScoop();
+        Scored();
+
+        if (Input.GetMouseButton(0) && !charging) {
+            charging = true;
+        }
     }
 
-    void MoveScoop() {
-        screenPos = Input.mousePosition;
-        screenPos.z = 1f;
-        worldPos = cam.GetComponent<Camera>().ScreenToWorldPoint(screenPos);
-        scoopObj.transform.position = worldPos;
+    public void Missed() {
+        AudioManager.instance.MinigameLost();
+    }
+
+    public void Scored() {
+        poopMade++;
+
+        if (poopMade >= poopNeeded) {
+            AudioManager.instance.MinigameWon();
+            minigameManager.CompleteMinigame();
+        }
     }
 }
