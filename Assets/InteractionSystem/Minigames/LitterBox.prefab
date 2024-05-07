@@ -10520,7 +10520,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.324, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.032374, y: 0.032374, z: 0.032374}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7623369850653905987}
@@ -10559,6 +10559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a2d32053a7a7c4e9d8fe6098c5a4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoring: 1
+  stackingManager: {fileID: 476306413484137030}
 --- !u!1 &1008172331546644232
 GameObject:
   m_ObjectHideFlags: 0
@@ -80396,10 +80398,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7190036750449269444}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.40809503, y: -0.5774588, z: -0.4080953, w: 0.5774582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6, y: -0.224, z: 0.995}
-  m_LocalScale: {x: 0.7534014, y: 0.7534014, z: 0.7534016}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8528806818824614703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87539,8 +87541,8 @@ Transform:
   m_GameObject: {fileID: 7629077739501862997}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000014901161, y: -0, z: -0.35170317, w: 0.9361116}
-  m_LocalPosition: {x: -0.87869793, y: -0.29777828, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.803, y: -0.34, z: 1}
+  m_LocalScale: {x: 0.77019, y: 0.77019, z: 0.77019}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8013183738030432395}
@@ -87613,7 +87615,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.326398, y: 0.3575017, z: 0.32639807}
   m_Center: {x: 0.000000014901161, y: 0.17875084, z: -0.000000022351742}
@@ -106013,6 +106015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a2d32053a7a7c4e9d8fe6098c5a4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoring: 0
+  stackingManager: {fileID: 476306413484137030}
 --- !u!1001 &6213036593637492194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106023,19 +106027,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9415721
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.15892538
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.29281744
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.04942383
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125599911639633205, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1340883814235339923, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106173,8 +106189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7052bf8dffc44d149ad8cc3f37aee155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerFactor: 100
-  chargeTime: 1
+  maxPower: 150
+  powerRate: 3
   chargeDirection: {x: -1, y: 1, z: 0}
   poop: {fileID: 174724564076624407, guid: 888dde0c62a46544c91550b9839b5859, type: 3}
   scoopObj: {fileID: 9203265328606095027}

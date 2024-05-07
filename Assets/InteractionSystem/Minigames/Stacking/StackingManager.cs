@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class StackingManager : MonoBehaviour
 {
-    [SerializeField] float powerFactor;
-    [SerializeField] float chargeTime;
+    [SerializeField] float maxPower;
+    [SerializeField] float powerRate;
     [SerializeField] Vector3 chargeDirection;
 
     int poopNeeded = 5;
     int poopMade = 0;
     bool charging = false;
     float counter = 0f;
+    float launchPower = 0f;
+    GameObject poopInstance;
     
     [SerializeField] GameObject poop;
     [SerializeField] GameObject scoopObj;
@@ -28,11 +30,11 @@ public class StackingManager : MonoBehaviour
 
     void FixedUpdate() {
         if (charging) {
-            counter += Time.deltaTime;
-            Debug.Log("charging = " + counter);
+            launchPower += powerRate;
+            Debug.Log("charging = " + launchPower);
 
-            if (counter >= chargeTime) {
-                LaunchPoop();
+            if (launchPower > maxPower) {
+                launchPower = maxPower;
             }
         }
     }
@@ -42,20 +44,21 @@ public class StackingManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !charging) {
             charging = true;
-        } else if (Input.GetMouseButtonUp(0)) {
-            counter = 0f;
-            charging = false;
+            poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
+            poopInstance.GetComponent<Rigidbody>().isKinematic = true;
+        } else if (Input.GetMouseButtonUp(0) && charging) {
+            LaunchPoop();
         }
     }
 
     void LaunchPoop() {
-        Debug.Log("launch");
         counter = 0f;
         charging = false;
-        GameObject poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
-        // poopInstance.transform.position = spawnPoint.TransformPoint(Vector3.zero);
-        Debug.DrawRay(spawnPoint.position, spawnPoint.TransformDirection(chargeDirection), Color.green, 5f);
-        poopInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(chargeDirection) * powerFactor);
+
+        poopInstance.GetComponent<Rigidbody>().isKinematic = false;
+        poopInstance.GetComponent<Rigidbody>().AddForce(spawnPoint.TransformDirection(chargeDirection) * launchPower);
+
+        launchPower = 0f;
     }
 
     public void Missed() {
@@ -64,6 +67,7 @@ public class StackingManager : MonoBehaviour
 
     public void Scored() {
         poopMade++;
+        Debug.Log(poopNeeded - poopMade + " to go");
 
         if (poopMade >= poopNeeded) {
             AudioManager.instance.MinigameWon();
