@@ -9,7 +9,9 @@ public class StackingManager : MonoBehaviour
     [SerializeField] Vector3 chargeDirection;
 
     int poopNeeded = 5;
+    int maxMissed = 5;
     int poopMade = 0;
+    int poopMissed = 0;
     bool charging = false;
     float counter = 0f;
     float launchPower = 0f;
@@ -19,6 +21,7 @@ public class StackingManager : MonoBehaviour
     [SerializeField] GameObject scoopObj;
     [SerializeField] Transform spawnPoint;
     [SerializeField] MinigameManager minigameManager;
+    [SerializeField] LaunchAudioManager lam;
 
     void OnEnable() {
         
@@ -46,8 +49,10 @@ public class StackingManager : MonoBehaviour
             charging = true;
             poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
             poopInstance.GetComponent<Rigidbody>().isKinematic = true;
+            lam.StartCharge();
         } else if (Input.GetMouseButtonUp(0) && charging) {
             LaunchPoop();
+            lam.StopCharge();
         }
     }
 
@@ -62,11 +67,21 @@ public class StackingManager : MonoBehaviour
     }
 
     public void Missed() {
+        lam.PoopHit();
+        poopMissed++;
+
+        if (poopMissed > maxMissed) {
+            GameOver();
+        }
+    }
+
+    void GameOver() {
         AudioManager.instance.MinigameLost();
     }
 
     public void Scored() {
         poopMade++;
+        lam.PoopMake();
         Debug.Log(poopNeeded - poopMade + " to go");
 
         if (poopMade >= poopNeeded) {

@@ -13,6 +13,8 @@ public class StackingKillPlane : MonoBehaviour
         
         if (scoring) {
             stackingManager.Scored();
+        } else {
+            stackingManager.Missed();
         }
 
         Debug.Log("Poop");
