@@ -24,4 +24,12 @@ public class PickupSocket : Interactable
             pickupParent.GetComponent<PickupParent>().ItemReturned();
         }
     }
+
+    void OnEnable() {
+        available = true;
+    }
+
+    void OnDisable() {
+        available = false;
+    }
 }

@@ -24,7 +24,7 @@ public class StackingManager : MonoBehaviour
     [SerializeField] LaunchAudioManager lam;
 
     void OnEnable() {
-        
+
     }
 
     void OnDisable() {
@@ -85,6 +85,8 @@ public class StackingManager : MonoBehaviour
         Debug.Log(poopNeeded - poopMade + " to go");
 
         if (poopMade >= poopNeeded) {
+            poopMade = 0;
+            poopMissed = 0;
             AudioManager.instance.MinigameWon();
             minigameManager.CompleteMinigame();
         }

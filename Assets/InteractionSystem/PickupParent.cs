@@ -34,6 +34,7 @@ public class PickupParent : MonoBehaviour
     public void ItemReturned() {
         if (!itemPresent) {
             itemPresent = true;
+            item.transform.parent = transform;
             item.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(Vector3.zero));
             socket.SetActive(false);
             item.GetComponent<BoxCollider>().enabled = true;

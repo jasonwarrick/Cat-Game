@@ -133,7 +133,7 @@ public class CatBrain : MonoBehaviour
 
         meters.Add(new Meter("feed", 1f, feedPoint));
         meters.Add(new Meter("drink", 1f, drinkPoint));
-        // meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
+        meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
         meters.Add(new Meter("play", 1f, playPoint));
         // meters.Add(new Meter("nail", Random.Range(0f, meterStartRange), nailPoint, false));
         // meters.Add(new Meter("medicine", Random.Range(0f, meterStartRange), medicinePoint, false));
