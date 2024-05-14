@@ -11,20 +11,63 @@ public class ComputerMinigame : MonoBehaviour
 
     float currentWork = 0;
     int workDone = 0;
+    bool lockedOut = false;
+    public bool atComputer = false;
 
     [SerializeField] Slider progressBar;
     [SerializeField] TextMeshProUGUI workTracker;
-    [SerializeField] ComputerAudioManager cam;
+    [SerializeField] ComputerAudioManager compAudioManager;
+    [SerializeField] GameObject cam;
+    [SerializeField] GameObject gameCanvas;
+    [SerializeField] GameObject errorCanvas;
+
+    void Start() {
+        Meter.meterDanger += LockOut;
+        Meter.meterReset += Unlock;
+    }
+
+    void OnDestroy() {
+        Meter.meterDanger -= LockOut;
+        Meter.meterReset -= Unlock;
+    }
 
     void Update() {
-        if (Input.anyKeyDown) {
+        if (cam.activeInHierarchy) {
+            atComputer = true;
+        } else {
+            atComputer = false;
+        }
+        
+        if (Input.anyKeyDown && !lockedOut && atComputer) {
             DoWork();
         }
     }
 
+    void OnEnable() {
+        if (lockedOut) {
+            gameCanvas.SetActive(false);
+            errorCanvas.SetActive(true);
+        } else {
+            gameCanvas.SetActive(true);
+            errorCanvas.SetActive(false);
+        }
+    }
+
+    void LockOut(Meter meter) {
+        gameCanvas.SetActive(false);
+        errorCanvas.SetActive(true);
+        lockedOut = true;
+    }
+
+    void Unlock(Meter meter) {
+        lockedOut = false;
+        gameCanvas.SetActive(true);
+        errorCanvas.SetActive(false);
+    }
+
     void DoWork() {
         currentWork++;
-        cam.PlayKeyAudio();
+        compAudioManager.PlayKeyAudio();
         // Debug.Log (currentWork + " work done out of " + workToComplete + " total work");
 
         if (currentWork >= workToComplete) {
