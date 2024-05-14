@@ -102,8 +102,10 @@ public class CatBrain : MonoBehaviour
     [SerializeField] float maxTimer;
 
     List<Meter> meters = new List<Meter>();
+    List<int> availableMeters = new List<int> { 0, 1, 2, 3 };
 
-    void Start() {meters.Add(new Meter("feed", 1f, feedPoint));
+    void Start() {
+        meters.Add(new Meter("feed", 1f, feedPoint));
         meters.Add(new Meter("drink", 1f, drinkPoint));
         meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
         meters.Add(new Meter("play", 1f, playPoint));
@@ -123,23 +125,17 @@ public class CatBrain : MonoBehaviour
         counter += Time.deltaTime;
 
         if (counter >= timer) {
-            List<int> openIndices = new List<int> {};
-
-            for (int i = 0; i < meters.Count; i++) {
-                if (!meters[i].danger) {
-                    openIndices.Add(i);
-                }
+            if (availableMeters.Count <= 0) {
+                availableMeters = new List<int> { 0, 1, 2, 3 };
             }
 
-            if (openIndices.Count > 0) {
-                int newIndex = Random.Range(0, openIndices.Count);
+            int newIndex = Random.Range(0, availableMeters.Count);
 
-                meters[openIndices[newIndex]].StartDanger();
-                counter = 0f;
-                SetTimer();
+            meters[availableMeters[newIndex]].StartDanger();
+            counter = 0f;
+            SetTimer();
 
-                openIndices.Clear();
-            }
+            availableMeters.RemoveAt(newIndex);
         }
 
         foreach (Meter meter in meters) {
