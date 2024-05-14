@@ -86,22 +86,15 @@ public class Meter : MonoBehaviour {
 public class CatBrain : MonoBehaviour
 {
     [SerializeField] Transform feedPoint;
-    // [SerializeField] float feedStart;
     [SerializeField] Transform drinkPoint;
-    // [SerializeField] float drinkStart;
     [SerializeField] Transform litterPoint;
-    // [SerializeField] float litterStart;
     [SerializeField] Transform playPoint;
-    // [SerializeField] float playStart;
     [SerializeField] Transform nailPoint;
-    // [SerializeField] float nailStart;
     [SerializeField] Transform medicinePoint;
-    // [SerializeField] float medicineStart;
 
     [SerializeField] float meterAmt;
     [SerializeField] float meterResetRange;
     [SerializeField] float meterStartRange;
-    [SerializeField] float meterStartBuffer;
 
     float timer = 0f;
     float counter = 0f;
@@ -109,35 +102,12 @@ public class CatBrain : MonoBehaviour
     [SerializeField] float maxTimer;
 
     List<Meter> meters = new List<Meter>();
-    List<float> meterStarts = new List<float>();
 
-    void Start() {
-
-        // for (int i = 0; i < 3; i++) {
-        //     float newStart = Random.Range(0f, meterStartRange);
-
-        //     foreach (float start in meterStarts) {
-        //         if (newStart > start - meterStartBuffer && newStart < start + meterStartBuffer) {
-        //             newStart = start - meterStartBuffer;
-
-        //             if (newStart < 0) {
-        //                 newStart = start + meterStartBuffer;
-        //             }
-        //         }
-        //     }
-
-        //     meterStarts.Add(newStart);
-
-        //     // Debug.Log(newStart);
-        // }
-
-        meters.Add(new Meter("feed", 1f, feedPoint));
+    void Start() {meters.Add(new Meter("feed", 1f, feedPoint));
         meters.Add(new Meter("drink", 1f, drinkPoint));
         meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
         meters.Add(new Meter("play", 1f, playPoint));
-        // meters.Add(new Meter("nail", Random.Range(0f, meterStartRange), nailPoint, false));
-        // meters.Add(new Meter("medicine", Random.Range(0f, meterStartRange), medicinePoint, false));
-
+        
         SetTimer();
     }
 

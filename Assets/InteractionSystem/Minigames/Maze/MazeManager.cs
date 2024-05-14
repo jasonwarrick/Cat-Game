@@ -83,10 +83,11 @@ public class MazeManager : MonoBehaviour
     public void StopMaze() {
         runStarted = false;
         start.SetActive(true);
+        ToggleBorders(false);
 
-        if (!minigameFinished) {
-            ToggleBorders(false);
-        }
+        // if (!minigameFinished) {
+            
+        // }
     }
 
     public void WallHit() {
