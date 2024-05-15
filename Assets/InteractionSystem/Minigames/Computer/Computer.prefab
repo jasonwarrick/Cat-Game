@@ -350,7 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c66b934393054a459099ffc70c59e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workToComplete: 50
+  strokesToComplete: 50
+  workToComplete: 10
   workFactor: 1.05
   atComputer: 0
   progressBar: {fileID: 5370775548959621543}
@@ -1218,6 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meterName: 
+  ignoreEvent: 1
   cam: {fileID: 5678759831464723684}
 --- !u!1 &5758531111531861654
 GameObject:

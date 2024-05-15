@@ -10,7 +10,7 @@ public class GameEndManager : MonoBehaviour
     public void SetMessage(int gameResult) {
         switch (gameResult) {
             case 0: // Game Won
-                messageText.text = "THE CAT IS SATED";
+                messageText.text = "YOUR WORK IS DONE";
                 break;
 
             case 1: // Game Lost to Cat

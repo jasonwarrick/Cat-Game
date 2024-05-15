@@ -128,6 +128,7 @@ public class GameStateManager : MonoBehaviour
     public void GameWon() {
         LockPlayer();
         SetGameCanvases(false);
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.Confined;
         gameEndScreen.GetComponent<GameEndManager>().SetMessage(0);
     }

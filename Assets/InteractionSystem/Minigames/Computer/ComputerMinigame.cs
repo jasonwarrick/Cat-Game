@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ComputerMinigame : MonoBehaviour
 {
+    [SerializeField] float strokesToComplete;
     [SerializeField] float workToComplete;
     [SerializeField] float workFactor;
 
@@ -70,7 +71,7 @@ public class ComputerMinigame : MonoBehaviour
         compAudioManager.PlayKeyAudio();
         // Debug.Log (currentWork + " work done out of " + workToComplete + " total work");
 
-        if (currentWork >= workToComplete) {
+        if (currentWork >= strokesToComplete) {
             FinishWork();
         }
 
@@ -80,12 +81,17 @@ public class ComputerMinigame : MonoBehaviour
     void FinishWork() {
         workDone++;
         currentWork = 0;
-        workToComplete *= workFactor;
+        strokesToComplete *= workFactor;
 
         workTracker.text = workDone + " work done";
+
+        if (workDone >= workToComplete) {
+            transform.parent.GetComponent<MinigameManager>().StopMinigame();
+            GameStateManager.instance.GameWon();
+        }
     }
 
     void UpdateProgress() {
-        progressBar.value = currentWork / workToComplete;
+        progressBar.value = currentWork / strokesToComplete;
     }
 }
