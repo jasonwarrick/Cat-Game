@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Meter : MonoBehaviour {
-    public delegate void MeterFull(Meter meter);
+    public delegate void MeterFull(bool isMeter);
     public static MeterFull meterFull;
 
     public delegate void MeterDanger(Meter meter);
@@ -65,7 +65,7 @@ public class Meter : MonoBehaviour {
 
         if (reading >= 100f) {
             ResetReading(0f);
-            meterFull.Invoke(this);
+            meterFull.Invoke(true);
         }
     }
 

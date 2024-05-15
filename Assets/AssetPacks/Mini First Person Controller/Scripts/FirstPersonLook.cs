@@ -10,6 +10,7 @@ public class FirstPersonLook : MonoBehaviour
     Vector2 velocity;
     Vector2 frameVelocity;
 
+    public bool locked = false;
 
     void Reset()
     {

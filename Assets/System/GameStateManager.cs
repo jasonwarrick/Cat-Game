@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,17 +16,22 @@ public class GameStateManager : MonoBehaviour
     
     int[] time = new int[2] { 10, 0 } ; // { Hours, Minutes }
     float timeCounter = 0f;
+    bool isPM = false;
 
     bool inMinigame = false;
     bool paused = false;
     public GameObject heldObject;
     GameObject player;
 
+    [SerializeField] GameObject hud;
+    [SerializeField] GameObject gameEndScreen;
+
     void Start() {
         player = FindObjectOfType<FirstPersonMovement>().gameObject;
         instance = this;
         time = startTime;
         timeChanged.Invoke(time[0], time[1]);
+        SetGameCanvases(true);
 
         MinigameManager.minigameStarted += SetInMinigame;
         Meter.meterFull += GameLost;
@@ -58,10 +62,15 @@ public class GameStateManager : MonoBehaviour
 
             if (time[0] > 12) {
                 time[0] = 1;
+                isPM = !isPM;
             }
         }
 
         timeChanged.Invoke(time[0], time[1]);
+
+        if (time[0] >= 10 && isPM) {
+            GameLost(false);
+        }
     }
 
     public void SetInMinigame(bool isInMinigame) {
@@ -85,12 +94,41 @@ public class GameStateManager : MonoBehaviour
     void Danger(Meter meter) {
         Debug.Log(meter.Name + " is in danger");
     }
+
+    void SetGameCanvases(bool inGame) {
+        hud.SetActive(inGame);
+        gameEndScreen.SetActive(!inGame);
+    }
     
-    void GameLost(Meter meter) {
-        player.SetActive(false);
+    void GameLost(bool isMeter) {
+        SetGameCanvases(false);
+
+        if (!isMeter) {
+            Debug.Log("no meter");
+            gameEndScreen.GetComponent<GameEndManager>().SetMessage(2);
+        } else {
+            gameEndScreen.GetComponent<GameEndManager>().SetMessage(1);
+        }
+
+        LockPlayer();
         Debug.Log("game lost");
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1f;
+        // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    void LockPlayer() {
+        player.GetComponent<FirstPersonMovement>().enabled = false;
+        player.GetComponentInChildren<FirstPersonLook>().enabled = false;
+        player.GetComponent<PlayerInteraction>().enabled = false;
+        player.GetComponent<InputReader>().enabled = false;
+    }
+
+    public void GameWon() {
+        LockPlayer();
+        SetGameCanvases(false);
+        Cursor.lockState = CursorLockMode.Confined;
+        gameEndScreen.GetComponent<GameEndManager>().SetMessage(0);
     }
 }
