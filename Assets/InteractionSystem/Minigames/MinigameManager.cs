@@ -10,6 +10,7 @@ public class MinigameManager : MonoBehaviour
     public string meterName;
 
     bool isStarted = false;
+    [SerializeField] bool ignoreEvent = false;
     
     [SerializeField] GameObject cam;
     GameObject player;
@@ -27,7 +28,9 @@ public class MinigameManager : MonoBehaviour
     public void StartMinigame() {
         isStarted = true;
 
-        minigameStarted.Invoke(isStarted);
+        if (!ignoreEvent) {
+            minigameStarted.Invoke(isStarted);
+        }
 
         cam.SetActive(isStarted);
 
@@ -47,7 +50,9 @@ public class MinigameManager : MonoBehaviour
         isStarted = false;
         player.SetActive(true);
         
-        minigameStarted.Invoke(isStarted);
+        if (!ignoreEvent) {
+            minigameStarted.Invoke(isStarted);
+        }
 
         cam.SetActive(isStarted);
         Debug.Log("mingame ended");

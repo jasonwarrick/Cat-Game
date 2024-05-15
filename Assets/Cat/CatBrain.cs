@@ -114,7 +114,11 @@ public class CatBrain : MonoBehaviour
     }
 
     void FixedUpdate() {
-        UpdateMeters();
+        if (!GameStateManager.instance.GetInMinigame()) {
+            UpdateMeters();
+        } else {
+            Debug.Log("Blocking in minigame");
+        }
     }
 
     void SetTimer() {
