@@ -25,6 +25,7 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] GameObject hud;
     [SerializeField] GameObject gameEndScreen;
+    [SerializeField] GameObject pauseScreen;
 
     void Start() {
         player = FindObjectOfType<FirstPersonMovement>().gameObject;
@@ -87,12 +88,17 @@ public class GameStateManager : MonoBehaviour
 
     public void PauseGame() {
         if (!paused) { 
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0f;
         } else {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
         }
 
         paused = !paused;
+        pauseScreen.SetActive(paused);
     }
 
     void Danger(Meter meter) {
