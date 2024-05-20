@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameEndManager : MonoBehaviour
 {
@@ -21,5 +22,21 @@ public class GameEndManager : MonoBehaviour
                 messageText.text = "YOUR WORK IS UNFINISHED";
                 break;
         }
+    }
+
+    void OnEnable() {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void MainMenuHit() {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(0);
+    }
+
+    public void PlayAgainHit() {
+        GameStateManager.instance.ReloadLevel();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -6,6 +6,7 @@ public class MinigameInteract : Interactable
 {
     public bool available = false;
     string meterName;
+    [SerializeField] bool computer = false;
 
     [SerializeField] MinigameManager minigameManager;
     [SerializeField] GameObject required;
@@ -28,7 +29,7 @@ public class MinigameInteract : Interactable
     }
 
     override public bool CheckAvailable() {
-        if (GameStateManager.instance.heldObject != null && GameStateManager.instance.heldObject.name == required.name && FindObjectOfType<CatBrain>().IsMeterDanger(meterName)) {
+        if (computer || GameStateManager.instance.heldObject != null && GameStateManager.instance.heldObject.name == required.name && FindObjectOfType<CatBrain>().IsMeterDanger(meterName)) {
             available = true;
         } else {
             available = false;

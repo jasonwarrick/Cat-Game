@@ -23469,6 +23469,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3903894429560668752, guid: 70aa44956c739bd4c9a7db13b2509f9f, type: 3}
+      propertyPath: computer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5611226504169875015, guid: 70aa44956c739bd4c9a7db13b2509f9f, type: 3}
       propertyPath: m_Name
       value: Computer

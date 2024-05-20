@@ -356,6 +356,18 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 53.8
       objectReference: {fileID: 0}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4717549379745634679}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenuHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEndManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -471,6 +483,18 @@ PrefabInstance:
     - target: {fileID: 5711862985659072011, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
       propertyPath: m_fontSizeBase
       value: 53.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4717549379745634679}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAgainHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851657851960662681, guid: d9beefc4308f2db4da622f80581396d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameEndManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

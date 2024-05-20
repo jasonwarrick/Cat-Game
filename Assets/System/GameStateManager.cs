@@ -116,10 +116,13 @@ public class GameStateManager : MonoBehaviour
 
         LockPlayer();
         Debug.Log("game lost");
-        // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void ReloadLevel() {
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void LockPlayer() {
