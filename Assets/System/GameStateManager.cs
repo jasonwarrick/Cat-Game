@@ -47,6 +47,10 @@ public class GameStateManager : MonoBehaviour
     void Update() {
         timeCounter += Time.deltaTime;
 
+        // if (heldObject != null) {
+        //     Debug.Log(heldObject.name);
+        // }
+
         if (timeCounter >= timeIncrement / timeFactor) {
             timeCounter = 0f;
             AddMinute();

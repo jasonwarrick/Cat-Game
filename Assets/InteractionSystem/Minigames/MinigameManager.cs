@@ -13,7 +13,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] bool ignoreEvent = false;
     
     [SerializeField] GameObject cam;
-    GameObject player;
+    [SerializeField] GameObject player;
     CatBrain catBrain;
     
     Coroutine winCoroutine;
@@ -21,8 +21,11 @@ public class MinigameManager : MonoBehaviour
     void Start() {
         cam.SetActive(false);
         
-        player = FindObjectOfType<FirstPersonMovement>().gameObject;
         catBrain = FindObjectOfType<CatBrain>();
+
+        if (ignoreEvent) {
+            StartMinigame();
+        }
     }
 
     public void StartMinigame() {
