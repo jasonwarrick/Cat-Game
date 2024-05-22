@@ -100,6 +100,7 @@ public class CatBrain : MonoBehaviour
     float counter = 0f;
     [SerializeField] float minTimer;
     [SerializeField] float maxTimer;
+    [SerializeField] float firstTime;
 
     List<Meter> meters = new List<Meter>();
     List<int> availableMeters = new List<int> { 0, 1, 2, 3 };
@@ -110,7 +111,7 @@ public class CatBrain : MonoBehaviour
         meters.Add(new Meter("litter", Random.Range(0f, meterStartRange), litterPoint));
         meters.Add(new Meter("play", 1f, playPoint));
         
-        SetTimer();
+        SetTimer(firstTime);
     }
 
     void FixedUpdate() {
@@ -123,6 +124,10 @@ public class CatBrain : MonoBehaviour
 
     void SetTimer() {
         timer = Random.Range(minTimer, maxTimer);
+    }
+
+    void SetTimer(float inTime) {
+        timer = inTime;
     }
 
     void UpdateMeters() {

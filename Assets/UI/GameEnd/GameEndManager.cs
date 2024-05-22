@@ -30,11 +30,13 @@ public class GameEndManager : MonoBehaviour
     }
 
     public void MainMenuHit() {
+        Time.timeScale = 1f;
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         SceneManager.LoadScene(0);
     }
 
     public void PlayAgainHit() {
+        Time.timeScale = 1f;
         GameStateManager.instance.ReloadLevel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

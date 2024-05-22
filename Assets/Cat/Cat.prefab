@@ -434,9 +434,12 @@ MonoBehaviour:
   playPoint: {fileID: 0}
   nailPoint: {fileID: 0}
   medicinePoint: {fileID: 0}
-  meterAmt: 0.015
+  meterAmt: 0.05
   meterResetRange: 20
-  meterStartRange: 0
+  meterStartRange: 60
+  minTimer: 10
+  maxTimer: 20
+  firstTime: 5
 --- !u!65 &8327993401118785902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -456,8 +459,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.24381754, y: 0.28441954, z: 0.48627853}
-  m_Center: {x: -0.029097242, y: 0.115049124, z: -0.057744443}
+  m_Size: {x: 0.12839565, y: 0.13, z: 0.4492273}
+  m_Center: {x: -0.0069017704, y: 0.09566951, z: -0.058587685}
 --- !u!114 &8742891895652243632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   available: 0
+  computer: 0
   minigameManager: {fileID: 0}
   required: {fileID: 0}
   pickupParent: {fileID: 0}
@@ -487,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   available: 0
+  computer: 0
   minigameManager: {fileID: 0}
   required: {fileID: 0}
   pickupParent: {fileID: 0}
@@ -503,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   available: 0
+  computer: 0
   minigameManager: {fileID: 0}
   required: {fileID: 0}
   pickupParent: {fileID: 0}

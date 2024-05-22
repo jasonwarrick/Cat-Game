@@ -25,7 +25,8 @@ public class PickupParent : MonoBehaviour
 
     public void ItemPickedUp() {
         dangerLight.transform.parent = minigamePoint;
-        dangerLight.transform.position = minigamePoint.position;
+        Vector3 newPosition = new Vector3(minigamePoint.position.x, minigamePoint.position.y + .25f, minigamePoint.position.z);
+        dangerLight.transform.position = newPosition;
         itemPresent = false;
         socket.SetActive(true);
         item.GetComponent<BoxCollider>().enabled = false;
