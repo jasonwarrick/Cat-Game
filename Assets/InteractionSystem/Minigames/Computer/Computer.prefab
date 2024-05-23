@@ -401,7 +401,7 @@ AudioSource:
   m_GameObject: {fileID: 1882039741505667402}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 509aaa784a7de344c962741bb4d0c984, type: 2}
   m_audioClip: {fileID: 8300000, guid: 247d5a2c1c9cb1c4785f738f691bb9fa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -665,7 +665,7 @@ AudioSource:
   m_GameObject: {fileID: 2763555267221962817}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 509aaa784a7de344c962741bb4d0c984, type: 2}
   m_audioClip: {fileID: 8300000, guid: ba45c7ff1c4846e4fa0e4b4a57290c8b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -977,7 +977,7 @@ AudioSource:
   m_GameObject: {fileID: 3988478135116751182}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 509aaa784a7de344c962741bb4d0c984, type: 2}
   m_audioClip: {fileID: 8300000, guid: c6c18f42cc8a4f04b84acc973653ae81, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   meterName: 
   ignoreEvent: 1
   cam: {fileID: 5678759831464723684}
+  player: {fileID: 0}
 --- !u!1 &5758531111531861654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   available: 1
+  computer: 0
   minigameManager: {fileID: 8968313254806071726}
   required: {fileID: 0}
   pickupParent: {fileID: 0}

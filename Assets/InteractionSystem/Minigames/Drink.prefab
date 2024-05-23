@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 2564326063103157840}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.000000029802319, z: 0.000000055413686, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.94, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.94, z: -0.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -372,7 +372,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.34
+      scalar: 0.37
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1007,7 +1007,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.06
+      value: 0.048
       mode: 0
       spread: 0
       speed:
@@ -5756,7 +5756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 623029939577721848, guid: 5b9ad78156dc64847b8cd8281f0dd9b4, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7788125831560897213, guid: 5b9ad78156dc64847b8cd8281f0dd9b4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6112,11 +6112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5755621868472777968, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6027400131583636189, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027400131583636189, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6677203242545972995, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_Name
