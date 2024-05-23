@@ -19,30 +19,34 @@ public class GameStateManager : MonoBehaviour
     bool isPM = false;
 
     bool inMinigame = false;
+    public bool filterActive = true;
     bool paused = false;
     public GameObject heldObject;
     GameObject player;
 
-    [SerializeField] GameObject hud;
     [SerializeField] GameObject gameEndScreen;
-    [SerializeField] GameObject pauseScreen;
+
+    void Awake() {
+        instance = this;
+    }
 
     void Start() {
         player = FindObjectOfType<FirstPersonMovement>().gameObject;
-        instance = this;
         time = startTime;
         timeChanged.Invoke(time[0], time[1]);
-        SetGameCanvases(true);
+        // SetGameCanvases(true);
 
         MinigameManager.minigameStarted += SetInMinigame;
         Meter.meterFull += GameLost;
         Meter.meterDanger += Danger;
+        SettingsManager.filterToggled += FilterToggled;
     }
 
     void OnDestroy() {
         MinigameManager.minigameStarted -= SetInMinigame;
         Meter.meterFull -= GameLost;
         Meter.meterDanger -= Danger;
+        SettingsManager.filterToggled -= FilterToggled;
     }
     
     void Update() {
@@ -84,6 +88,10 @@ public class GameStateManager : MonoBehaviour
         // Debug.Log(inMinigame);
     }
 
+    void FilterToggled() {
+        filterActive = !filterActive;
+    }
+
     public bool GetInMinigame() { return inMinigame; }
 
     public void PauseGame() {
@@ -91,14 +99,15 @@ public class GameStateManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0f;
+            CanvasManager.instance.ShowPause();
         } else {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
+            CanvasManager.instance.ShowHUD();
         }
 
         paused = !paused;
-        pauseScreen.SetActive(paused);
     }
 
     void Danger(Meter meter) {
@@ -106,8 +115,11 @@ public class GameStateManager : MonoBehaviour
     }
 
     void SetGameCanvases(bool inGame) {
-        hud.SetActive(inGame);
-        gameEndScreen.SetActive(!inGame);
+        if (inGame) {
+            CanvasManager.instance.ShowHUD();
+        } else {
+            CanvasManager.instance.ShowGameEnd();
+        }
     }
     
     void GameLost(bool isMeter) {
