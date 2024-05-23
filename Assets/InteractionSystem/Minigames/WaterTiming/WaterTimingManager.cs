@@ -19,9 +19,11 @@ public class WaterTimingManager : MonoBehaviour
     [SerializeField] ParticleSystem waterParticles;
     [SerializeField] Image indicator;
     [SerializeField] GameObject tutorialText;
+    [SerializeField] AudioSource faucetAudio;
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
+            faucetAudio.Play();
             SetSweetSpot();
             indicator.enabled = true;
             tutorialText.SetActive(false);
@@ -29,6 +31,8 @@ public class WaterTimingManager : MonoBehaviour
 
             waterParticles.Play();
         } if (Input.GetMouseButtonUp(0)) {
+            faucetAudio.Stop();
+            
             if (inSweetSpot) {
                 MinigameWon();
             } else if (waterIsRunning) { 
