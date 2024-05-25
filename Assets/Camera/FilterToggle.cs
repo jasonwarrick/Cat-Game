@@ -14,7 +14,7 @@ public class FilterToggle : MonoBehaviour
     }
 
     void OnEnable() {
-        if (GameStateManager.instance.filterActive) {
+        if (fx.enabled) {
             fx.enabled = true;
         } else {
             fx.enabled = false;

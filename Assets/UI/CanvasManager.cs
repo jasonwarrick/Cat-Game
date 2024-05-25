@@ -10,6 +10,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject pause;
     [SerializeField] GameObject settings;
     [SerializeField] GameObject gameEnd;
+    [SerializeField] GameObject mainMenu;
 
     void Start() {
         instance = this;
@@ -20,6 +21,10 @@ public class CanvasManager : MonoBehaviour
         pause.SetActive(false);
         settings.SetActive(false);
         gameEnd.SetActive(false);
+        
+        if (mainMenu != null) {
+            mainMenu.SetActive(false);
+        }
     }
 
     public void ShowPause() {
@@ -27,6 +32,10 @@ public class CanvasManager : MonoBehaviour
         pause.SetActive(true);
         settings.SetActive(false);
         gameEnd.SetActive(false);
+        
+        if (mainMenu != null) {
+            mainMenu.SetActive(false);
+        }
     }
 
     public void ShowSettings() {
@@ -34,6 +43,10 @@ public class CanvasManager : MonoBehaviour
         pause.SetActive(false);
         settings.SetActive(true);
         gameEnd.SetActive(false);
+        
+        if (mainMenu != null) {
+            mainMenu.SetActive(false);
+        }
     }
 
     public void ShowGameEnd() {
@@ -41,5 +54,20 @@ public class CanvasManager : MonoBehaviour
         pause.SetActive(false);
         settings.SetActive(false);
         gameEnd.SetActive(true);
+        
+        if (mainMenu != null) {
+            mainMenu.SetActive(false);
+        }
+    }
+
+    public void ShowMainMenu() {
+        hud.SetActive(false);
+        pause.SetActive(false);
+        settings.SetActive(false);
+        gameEnd.SetActive(false);
+
+        if (mainMenu != null) {
+            mainMenu.SetActive(true);
+        }
     }
 }

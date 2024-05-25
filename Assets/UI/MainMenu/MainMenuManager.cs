@@ -8,4 +8,9 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGamePressed() {
         SceneManager.LoadScene(1);
     }
+
+    public void QuitPressed() {
+        Application.Quit();
+        Debug.Log("Quit pressed");
+    }
 }
