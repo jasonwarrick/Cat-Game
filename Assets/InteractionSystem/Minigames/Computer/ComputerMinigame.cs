@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ComputerMinigame : MonoBehaviour
 {
     [SerializeField] float strokesToComplete;
-    [SerializeField] float workToComplete;
+    public float workToComplete;
     [SerializeField] float workFactor;
 
     float currentWork = 0;
