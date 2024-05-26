@@ -6066,6 +6066,10 @@ PrefabInstance:
       propertyPath: meterName
       value: drink
       objectReference: {fileID: 0}
+    - target: {fileID: 3251888525099676675, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: pickupParent
+      value: 
+      objectReference: {fileID: 3563234666227681215}
     - target: {fileID: 4822696728049225496, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.532

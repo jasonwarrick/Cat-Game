@@ -28,6 +28,7 @@ public class StackingManager : MonoBehaviour
     void OnEnable() {
         gameStarted = false;
         tutCanvas.SetActive(true);
+        SpawnPoop();
     }
 
     void OnDisable() {
@@ -55,13 +56,16 @@ public class StackingManager : MonoBehaviour
             }
             
             charging = true;
-            poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
-            poopInstance.GetComponent<Rigidbody>().isKinematic = true;
             lam.StartCharge();
         } else if (Input.GetMouseButtonUp(0) && charging) {
             LaunchPoop();
             lam.StopCharge();
         }
+    }
+
+    void SpawnPoop() {
+        poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
+        poopInstance.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     void LaunchPoop() {
@@ -77,6 +81,7 @@ public class StackingManager : MonoBehaviour
     public void Missed() {
         lam.PoopHit();
         poopMissed++;
+        SpawnPoop();
 
         if (poopMissed > maxMissed) {
             GameOver();
@@ -90,6 +95,7 @@ public class StackingManager : MonoBehaviour
     public void Scored() {
         poopMade++;
         lam.PoopMake();
+        SpawnPoop();
         Debug.Log(poopNeeded - poopMade + " to go");
 
         if (poopMade >= poopNeeded) {

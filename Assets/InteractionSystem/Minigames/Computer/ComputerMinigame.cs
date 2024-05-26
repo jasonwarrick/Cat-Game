@@ -86,7 +86,7 @@ public class ComputerMinigame : MonoBehaviour
         workTracker.text = workDone + " work done";
 
         if (workDone >= workToComplete) {
-            transform.parent.GetComponent<MinigameManager>().StopMinigame();
+            transform.parent.GetComponent<MinigameManager>().StopMinigame(true);
             GameStateManager.instance.GameWon();
         }
     }

@@ -1172,6 +1172,10 @@ PrefabInstance:
       propertyPath: meterName
       value: feed
       objectReference: {fileID: 0}
+    - target: {fileID: 3251888525099676675, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
+      propertyPath: pickupParent
+      value: 
+      objectReference: {fileID: 4994476881419807200}
     - target: {fileID: 4822696728049225496, guid: 56aa798e8ace6e949a325eec1b722fb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.029

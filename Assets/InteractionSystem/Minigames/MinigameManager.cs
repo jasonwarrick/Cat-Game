@@ -14,6 +14,7 @@ public class MinigameManager : MonoBehaviour
     
     [SerializeField] GameObject cam;
     [SerializeField] GameObject player;
+    [SerializeField] PickupParent pickupParent;
     CatBrain catBrain;
     
     Coroutine winCoroutine;
@@ -23,9 +24,9 @@ public class MinigameManager : MonoBehaviour
         
         catBrain = FindObjectOfType<CatBrain>();
 
-        if (ignoreEvent) {
-            StartMinigame();
-        }
+        // if (ignoreEvent) {
+        //     StartMinigame();
+        // }
     }
 
     public void StartMinigame() {
@@ -45,20 +46,23 @@ public class MinigameManager : MonoBehaviour
 
     void Update() {
         if (isStarted && Input.GetKeyDown(KeyCode.Space)) {
-            StopMinigame();
+            StopMinigame(false);
         }
     }
 
-    public void StopMinigame() {
+    public void StopMinigame(bool wonGame) {
         isStarted = false;
         player.SetActive(true);
         
+        if (pickupParent != null && !wonGame) {
+            pickupParent.TurnOnLight();
+        }
+
         if (!ignoreEvent) {
             minigameStarted.Invoke(isStarted);
         }
 
         cam.SetActive(isStarted);
-        Debug.Log("mingame ended");
 
         HUDManager.instance.SwitchCamera(null);
     }
@@ -71,11 +75,9 @@ public class MinigameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (meterName != null) {
             catBrain.ResetMeter(meterName);
-        } else {
-            // Save work progress
         }
         
-        StopMinigame();
+        StopMinigame(true);
         StopCoroutine(winCoroutine);
     }
 }
