@@ -64,6 +64,7 @@ public class StackingManager : MonoBehaviour
     }
 
     void SpawnPoop() {
+        Debug.Log("spawned");
         poopInstance = Instantiate(poop, spawnPoint.TransformPoint(Vector3.zero), Quaternion.identity);
         poopInstance.GetComponent<Rigidbody>().isKinematic = true;
     }
