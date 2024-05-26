@@ -9,6 +9,7 @@ public class MenuCanvasManager : MonoBehaviour
     [SerializeField] GameObject tutorial1;
     [SerializeField] GameObject tutorial2;
     [SerializeField] GameObject tutorial3;
+    [SerializeField] GameObject credits;
 
     void Start () {
         ShowMainMenu();
@@ -19,6 +20,7 @@ public class MenuCanvasManager : MonoBehaviour
         tutorial1.SetActive(false);
         tutorial2.SetActive(false);
         tutorial3.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void ShowTut1() {
@@ -26,6 +28,7 @@ public class MenuCanvasManager : MonoBehaviour
         tutorial1.SetActive(true);
         tutorial2.SetActive(false);
         tutorial3.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void ShowTut2() {
@@ -33,6 +36,7 @@ public class MenuCanvasManager : MonoBehaviour
         tutorial1.SetActive(false);
         tutorial2.SetActive(true);
         tutorial3.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void ShowTut3() {
@@ -40,5 +44,14 @@ public class MenuCanvasManager : MonoBehaviour
         tutorial1.SetActive(false);
         tutorial2.SetActive(false);
         tutorial3.SetActive(true);
+        credits.SetActive(false);
+    }
+
+    public void ShowCredits() {
+        mainMenuCanvas.SetActive(false);
+        tutorial1.SetActive(false);
+        tutorial2.SetActive(false);
+        tutorial3.SetActive(false);
+        credits.SetActive(true);
     }
 }
