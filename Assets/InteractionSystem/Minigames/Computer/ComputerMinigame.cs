@@ -21,6 +21,7 @@ public class ComputerMinigame : MonoBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] GameObject gameCanvas;
     [SerializeField] GameObject errorCanvas;
+    [SerializeField] CatBrain catBrain;
 
     void Start() {
         Meter.meterDanger += LockOut;
@@ -61,9 +62,11 @@ public class ComputerMinigame : MonoBehaviour
     }
 
     void Unlock(Meter meter) {
-        lockedOut = false;
-        gameCanvas.SetActive(true);
-        errorCanvas.SetActive(false);
+        if (!catBrain.IsAnyMeterDanger()) {
+            lockedOut = false;
+            gameCanvas.SetActive(true);
+            errorCanvas.SetActive(false);
+        }
     }
 
     void DoWork() {

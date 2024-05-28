@@ -122,6 +122,16 @@ public class CatBrain : MonoBehaviour
         }
     }
 
+    public bool IsAnyMeterDanger() {
+        foreach (Meter meter in meters) {
+            if (meter.danger) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void SetTimer() {
         timer = Random.Range(minTimer, maxTimer);
     }

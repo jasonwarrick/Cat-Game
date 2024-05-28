@@ -5597,7 +5597,7 @@ PrefabInstance:
       value: 'Click and hold to run the water.
 
         Release when the red square
-        turns green.'
+        turns blue.'
       objectReference: {fileID: 0}
     - target: {fileID: 8056968720140282916, guid: 97445390fb5d4314cbf0b5712bda1ef5, type: 3}
       propertyPath: m_Name

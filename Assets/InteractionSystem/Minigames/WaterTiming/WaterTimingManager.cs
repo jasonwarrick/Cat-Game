@@ -66,7 +66,7 @@ public class WaterTimingManager : MonoBehaviour
         timer += Time.deltaTime;
 
         if (timer >= sweetSpotStart && timer <= sweetSpotStart + sweetSpotRange) {
-            indicator.color = Color.green;
+            indicator.color = Color.blue;
             inSweetSpot = true;
         } else {
             inSweetSpot = false;
