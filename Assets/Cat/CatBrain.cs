@@ -61,7 +61,7 @@ public class Meter : MonoBehaviour {
         //     meterDanger.Invoke(this);
         // }
 
-        Debug.Log("reading is now " + reading);
+        // Debug.Log("reading is now " + reading);
 
         if (reading >= 100f) {
             ResetReading(0f);

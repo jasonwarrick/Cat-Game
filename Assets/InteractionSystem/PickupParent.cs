@@ -11,7 +11,7 @@ public class PickupParent : MonoBehaviour
     [SerializeField] Transform lightPoint;
     [SerializeField] Light dangerLight;
 
-    bool itemPresent;
+    bool itemPresent = true;
     bool lightNeeded = false;
     bool meterCompleted = false;
 
@@ -29,14 +29,21 @@ public class PickupParent : MonoBehaviour
 
     public void ItemPickedUp() {
         if (lightNeeded) {
-            dangerLight.transform.parent = minigamePoint;
-            Vector3 newPosition = new Vector3(minigamePoint.position.x, minigamePoint.position.y + .25f, minigamePoint.position.z);
-            dangerLight.transform.position = newPosition;
+            MoveToMiningame();
+            // pickupEvent.Invoke(item.name);
         }
 
         itemPresent = false;
         socket.SetActive(true);
         item.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    void Update() {
+        if (GameStateManager.instance.heldObject != null && GameStateManager.instance.heldObject.name != item.name && lightNeeded) {
+            TurnOffLight();
+        } else if (lightNeeded) {
+            TurnOnLight();
+        }
     }
 
     public void ItemReturned() {
@@ -48,17 +55,13 @@ public class PickupParent : MonoBehaviour
             item.GetComponent<BoxCollider>().enabled = true;
 
             if (lightNeeded) {
-                dangerLight.transform.parent = transform;
-                dangerLight.transform.position = lightPoint.position;
+                MoveToPickup();
             }
         }
     }
 
     public void TurnOffLight() {
         dangerLight.enabled = false;
-        Debug.Log("turn off light");
-        // dangerLight.transform.parent = transform;
-        // dangerLight.transform.position = lightPoint.position;
     }
 
     public void TurnOnLight() {
@@ -69,9 +72,25 @@ public class PickupParent : MonoBehaviour
         if (meter.Name == meterName) {
             lightNeeded = true;
             dangerLight.enabled = true;
-            dangerLight.transform.parent = transform;
-            dangerLight.transform.position = lightPoint.position;
+
+            if (itemPresent) {
+                MoveToPickup();
+            } else {
+                MoveToMiningame();
+            }
+            
         }   
+    }
+
+    void MoveToPickup() {
+        dangerLight.transform.parent = transform;
+        dangerLight.transform.position = lightPoint.position;
+    }
+
+    void MoveToMiningame() {
+        dangerLight.transform.parent = minigamePoint;
+        Vector3 newPosition = new Vector3(minigamePoint.position.x, minigamePoint.position.y + .25f, minigamePoint.position.z);
+        dangerLight.transform.position = newPosition;
     }
 
     void CompleteLight(Meter meter) {
@@ -79,7 +98,6 @@ public class PickupParent : MonoBehaviour
             lightNeeded = false;
             meterCompleted = true;
             TurnOffLight();
-            
         }   
     }
 }
