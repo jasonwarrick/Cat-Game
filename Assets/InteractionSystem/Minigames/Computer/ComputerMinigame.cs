@@ -40,7 +40,7 @@ public class ComputerMinigame : MonoBehaviour
             atComputer = false;
         }
         
-        if (Input.anyKeyDown && !lockedOut && atComputer) {
+        if (!Input.GetKeyDown(KeyCode.Escape) && Input.anyKeyDown  && !lockedOut && atComputer) {
             DoWork();
         }
     }

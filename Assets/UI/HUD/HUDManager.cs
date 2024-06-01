@@ -104,11 +104,12 @@ public class HUDManager : MonoBehaviour
     }
 
     public void SwitchCamera(Camera cam) {
+        CanvasManager canvasManager = transform.parent.GetComponent<CanvasManager>();
         if (cam == null) {
-            canvas.worldCamera = playerCamera;
+            canvasManager.ChangeAllCameras(playerCamera);
         } else {
             Debug.Log(cam.gameObject.name + " is the active camera");
-            canvas.worldCamera = cam;
+            canvasManager.ChangeAllCameras(cam);
         }   
     }
 }

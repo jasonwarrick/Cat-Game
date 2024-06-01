@@ -12,8 +12,25 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject gameEnd;
     [SerializeField] GameObject mainMenu;
 
+    GameObject[] canvases;
+    
     void Start() {
         instance = this;
+
+        canvases = new GameObject[] {
+            hud,
+            pause,
+            settings,
+            gameEnd
+        };
+    }
+
+    public void ChangeAllCameras(Camera cam) {
+        foreach (GameObject canvas in canvases) {
+            if (canvas.GetComponent<Canvas>().renderMode == RenderMode.ScreenSpaceCamera) {
+                canvas.GetComponent<Canvas>().worldCamera = cam;
+            }
+        }
     }
 
     public void ShowHUD() {
