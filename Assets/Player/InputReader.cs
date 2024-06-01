@@ -36,13 +36,14 @@ public class InputReader : MonoBehaviour
     void GetInput() {
         // Get the input from the Rewired Player. All controllers that the Player owns will contribute, so it doesn't matter
         // whether the input is coming from a joystick, the keyboard, mouse, or a custom controller.
+        if (Time.timeScale != 0f) {
+            moveX = player.GetAxis("MoveEastWest"); // get input by name or action id
+            moveZ = player.GetAxis("MoveNorthSouth");
+            lookX = player.GetAxis("LookHorizontal");
+            lookY = player.GetAxis("LookVertical");
+            interact = player.GetButtonDown("Interact");
+        }
 
-        moveX = player.GetAxis("MoveEastWest"); // get input by name or action id
-        moveZ = player.GetAxis("MoveNorthSouth");
-        lookX = player.GetAxis("LookHorizontal");
-        lookY = player.GetAxis("LookVertical");
-        interact = player.GetButtonDown("Interact");
-        
         if (player.GetButtonDown("Pause")) {
             GameStateManager.instance.PauseGame();
             Debug.Log("pause");

@@ -29,20 +29,26 @@ public class PlayerInteraction : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        RaycastHit hit;
-        
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, interactDistance)) {
-            if (hit.transform.gameObject.tag == "Interactable") {
-                if (!inRange || inRange && objectInRange != hit.transform.gameObject) {
-                    isAvailable = false;
-                    inRange = true;
-                    objectInRange = hit.transform.gameObject; 
-                    foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
-                        if (GameStateManager.instance.GetInMinigame()) { break; }
-                        
-                        if (interactable.CheckAvailable()) {
-                            isAvailable = true;
+        if (Time.timeScale != 0f) {
+            RaycastHit hit;
+            
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, interactDistance)) {
+                if (hit.transform.gameObject.tag == "Interactable") {
+                    if (!inRange || inRange && objectInRange != hit.transform.gameObject) {
+                        isAvailable = false;
+                        inRange = true;
+                        objectInRange = hit.transform.gameObject; 
+                        foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
+                            if (GameStateManager.instance.GetInMinigame()) { break; }
+                            
+                            if (interactable.CheckAvailable()) {
+                                isAvailable = true;
+                            }
                         }
+                    }
+                } else {
+                    if (inRange) {
+                        NullifyRay();
                     }
                 }
             } else {
@@ -50,24 +56,21 @@ public class PlayerInteraction : MonoBehaviour
                     NullifyRay();
                 }
             }
-        } else {
-            if (inRange) {
-                NullifyRay();
-            }
-        }
 
-        interactInRange.Invoke(inRange, isAvailable);
+            interactInRange.Invoke(inRange, isAvailable);
 
-        if (InputReader.instance.interact) {
-            if (inRange && isAvailable && !GameStateManager.instance.GetInMinigame()) {
-                
-                foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
-                    if (GameStateManager.instance.GetInMinigame()) { break; }
+            if (InputReader.instance.interact) {
+                if (inRange && isAvailable && !GameStateManager.instance.GetInMinigame()) {
                     
-                    interactable.Interact();
+                    foreach (Interactable interactable in objectInRange.GetComponents<Interactable>()) {
+                        if (GameStateManager.instance.GetInMinigame()) { break; }
+                        
+                        interactable.Interact();
+                    }
                 }
             }
         }
+        
     }
 
     void NullifyRay() {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,7 @@ public class ComputerMinigame : MonoBehaviour
             atComputer = false;
         }
         
-        if (!Input.GetKeyDown(KeyCode.Escape) && Input.anyKeyDown  && !lockedOut && atComputer) {
+        if (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(0) && Input.anyKeyDown  && !lockedOut && atComputer) {
             DoWork();
         }
     }

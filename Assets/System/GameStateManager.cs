@@ -101,9 +101,9 @@ public class GameStateManager : MonoBehaviour
             Time.timeScale = 0f;
             CanvasManager.instance.ShowPause();
         } else {
+            Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1f;
             CanvasManager.instance.ShowHUD();
         }
 

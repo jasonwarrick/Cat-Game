@@ -45,7 +45,7 @@ public class MinigameManager : MonoBehaviour
     }
 
     void Update() {
-        if (isStarted && Input.GetKeyDown(KeyCode.Space)) {
+        if (isStarted && Input.GetKeyDown(KeyCode.Space) && Time.timeScale != 0f) {
             StopMinigame(false);
         }
     }
