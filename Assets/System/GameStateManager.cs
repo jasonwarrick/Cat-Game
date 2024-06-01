@@ -147,7 +147,7 @@ public class GameStateManager : MonoBehaviour
         player.GetComponent<FirstPersonMovement>().enabled = false;
         player.GetComponentInChildren<FirstPersonLook>().enabled = false;
         player.GetComponent<PlayerInteraction>().enabled = false;
-        player.GetComponent<InputReader>().enabled = false;
+        GetComponent<InputReader>().enabled = false;
     }
 
     public void GameWon() {
